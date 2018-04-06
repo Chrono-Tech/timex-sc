@@ -5,6 +5,12 @@ module.exports = {
     node: true,
     mocha: true
   },
+  "globals": {
+    artifacts: true,
+    assert: true,
+    contract: true,
+    web3: true
+  },
   "plugins": [
     "mocha",
     "chai-friendly"
