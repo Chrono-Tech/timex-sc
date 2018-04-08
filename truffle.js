@@ -40,6 +40,12 @@ module.exports = {
       gas: 4700000,
       gasPrice: 0x01
     },
+    stage: {
+      provider: new HDWalletProvider(mnemonic, 'http://node1.parity.tp.ntr1x.com:8545'),
+      network_id: 135744, // 0x21240
+      gas: 4700000,
+      gasPrice: 0x01
+    },
     testrpc: {
       network_id: 'default'
     },
