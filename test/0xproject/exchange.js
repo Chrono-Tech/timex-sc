@@ -39,6 +39,12 @@ contract('Exchange', (accounts, d) => {
 
     await TT1.transfer(accounts[1], 1000, { from: accounts[0] })
     await TT2.transfer(accounts[2], 1000, { from: accounts[0] })
+
+    await ZRX.transfer(accounts[1], 500, { from: accounts[0] })
+    await ZRX.transfer(accounts[2], 500, { from: accounts[0] })
+
+    await ZRX.approve(TOKEN_TRANSFER_PROXY.address, 500, { from: accounts[1] })
+    await ZRX.approve(TOKEN_TRANSFER_PROXY.address, 500, { from: accounts[2] })
   })
 
   it('balance: account[5] has the balance of 100 ETH', async () => {
@@ -119,6 +125,32 @@ contract('Exchange', (accounts, d) => {
     assert(isValidInJs && isValidInContracts)
   })
 
+  it('exchange: Exchange.address can be authorized', async () => {
+    await TOKEN_TRANSFER_PROXY.addAuthorizedAddress(
+      Exchange.address,
+      { from: accounts[0] } // only owner can call it
+    )
+  })
+
+  it('exchange: accounts[1] can send tokens via TokenTransferProxy when authorized', async () => {
+    await TOKEN_TRANSFER_PROXY.addAuthorizedAddress(
+      accounts[1],
+      { from: accounts[0] } // only owner can call it
+    )
+
+    await TT2.approve(TOKEN_TRANSFER_PROXY.address, 100, { from: accounts[2] })
+    await TOKEN_TRANSFER_PROXY.transferFrom(
+      TT2.address,
+      accounts[2],
+      accounts[1],
+      42,
+      { from: accounts[1] }
+    )
+
+    const balanceAfter = await TT2.balanceOf.call(accounts[2])
+    assert.strictEqual(balanceAfter.toNumber(), 958)
+  })
+
   it('exchange: msg.sender should fillOrder', async () => {
     const order = new Order({
       exchangeContractAddress: EXCHANGE.address,
@@ -143,18 +175,25 @@ contract('Exchange', (accounts, d) => {
     }
     const signature = await signOrderHashAsync(hash, accounts[1], false, signer)
 
-    await TT1.approve(Exchange.address, 100, { from: accounts[1] })
-    await TT2.approve(Exchange.address, 100, { from: accounts[2] })
+    await TT1.approve(TOKEN_TRANSFER_PROXY.address, 100, { from: accounts[1] })
+    await TT2.approve(TOKEN_TRANSFER_PROXY.address, 100, { from: accounts[2] })
 
-    await EXCHANGE.fillOrder(
+    await TOKEN_TRANSFER_PROXY.addAuthorizedAddress(
+      EXCHANGE.address,
+      { from: accounts[0] } // only owner can call it
+    )
+
+    const res = await EXCHANGE.fillOrder.call(
       [ order.maker, order.taker, order.makerTokenAddress, order.takerTokenAddress, order.feeRecipient ],
       [ order.makerTokenAmount, order.takerTokenAmount, order.makerFee, order.takerFee, order.expirationUnixTimestampSec, order.salt ],
-      '4',
+      '10',
       true,
       signature.v,
       signature.r,
       signature.s,
       { from: accounts[2] }
     )
+
+    assert.strictEqual(res.toNumber(), 10)
   })
 })
