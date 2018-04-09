@@ -21,7 +21,7 @@ const derivedWallets = Array
 
 const privateKeys = derivedWallets.map(wallet => wallet.getPrivateKey().toString('hex'))
 
-const getBalance = account => promisify(cb => web3.eth.getBalance(account, cb))
+const getBalance = promisify((account, cb) => web3.eth.getBalance(account, cb))
 
 contract('Exchange', (accounts, d) => {
   console.log('Accounts:')
@@ -42,7 +42,8 @@ contract('Exchange', (accounts, d) => {
   })
 
   it('balance: account[5] has the balance of 100 ETH', async () => {
-    await getBalance(accounts[5])
+    const balance = await getBalance(accounts[5])
+    assert.strictEqual(balance.toString(), '100000000000000000000')
   })
 
   it('approvals: TT1 owner should approve 100 to exchange contract', async () => {
