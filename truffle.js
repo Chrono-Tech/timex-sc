@@ -31,11 +31,15 @@ module.exports = {
       // from - default address to use for any transaction Truffle makes during migrations
     },
     ropsten: {
-      provider: new HDWalletProvider(mnemonic, 'https://ropsten.infura.io'),
+      provider: function () {
+        return new HDWalletProvider(mnemonic, 'https://ropsten.infura.io')
+      },
       network_id: 3
     },
     demo: {
-      provider: new HDWalletProvider(mnemonic, 'http://192.168.10.6:8545'),
+      provider: function () {
+        return new HDWalletProvider(mnemonic, 'http://192.168.10.6:8545')
+      },
       network_id: 135744, // 0x21240
       gas: 4700000,
       gasPrice: 0x01
