@@ -4,7 +4,7 @@
 
 "@laborx/exchange.core@git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#develop":
   version "1.0.0"
-  resolved "git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#a7df4483375ab95f9311675e9133d8e24849660e"
+  resolved "git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#de9224540d6c48348c0ae3d18aface62e5b63c45"
   dependencies:
     bignumber.js "^6.0.0"
     bn.js "^4.11.8"
