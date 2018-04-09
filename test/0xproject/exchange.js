@@ -1,4 +1,8 @@
 // const { assertRevert } = require('../helpers/assertRevert')
+const { promisify } = require('util')
+const bip39 = require('bip39')
+const hdKey = require('ethereumjs-wallet/hdkey')
+const secrets = require('../../secrets.json')
 
 const EIP20 = artifacts.require('EIP20')
 const TokenTransferProxy = artifacts.require('./TokenTransferProxy.sol')
@@ -9,20 +13,22 @@ const { getOrderHashHex, signOrderHashAsync, isValidSignature, sign, Order } = r
 
 let ZRX, TT1, TT2, TOKEN_TRANSFER_PROXY, EXCHANGE
 
-const privateKeys = [
-  'c87509a1c067bbde78beb793e6fa76530b6382a4c0241e5e4a9ec0a0f44dc0d3',
-  'ae6ae8e5ccbfb04590405997ee2d52d2b330726137b875053c36d94e974d162f',
-  '0dbbe8e4ae425a6d2687f1a7e3ba17bc98c673636790f1b8ad91193c05875ef1',
-  'c88b703fb08cbea894b6aeff5a544fb92e78a18e19814cd85da83b71f772aa6c',
-  '388c684f0ba1ef5017716adb5d21a053ea8e90277d0868337519f97bede61418',
-  '659cbb0e2411a44db63778987b1e22153c086a95eb6b18bdf89de078917abc63',
-  '82d052c865f5763aad42add438569276c00d3d88a2d062d36b2bae914d58b8c8',
-  'aa3680d5d48a8283413f7a108367c7299ca73f553735860a87b08f39395618b7',
-  '0f62d96d6675f32685bbdb8ac13cda7c23436f63efbb9d07700d8669ff12b7c4',
-  '8d5366123cb560bb606379f90a0bfd4769eecc0557f1b362dcae9012b548b1e5'
-]
+const hdWallet = hdKey.fromMasterSeed(bip39.mnemonicToSeed(secrets.mnemonic))
+
+const derivedWallets = Array
+  .from({ length: 10 })
+  .map((item, index) => hdWallet.derivePath(`m/44'/60'/0'/0/${index}`).getWallet())
+
+const privateKeys = derivedWallets.map(wallet => wallet.getPrivateKey().toString('hex'))
+
+const getBalance = account => promisify(cb => web3.eth.getBalance(account, cb))
 
 contract('Exchange', (accounts, d) => {
+  console.log('Accounts:')
+  console.log(accounts)
+  console.log('Private Keys:')
+  console.log(privateKeys)
+
   beforeEach(async () => {
     ZRX = await ZRXToken.new()
     TOKEN_TRANSFER_PROXY = await TokenTransferProxy.new()
@@ -33,6 +39,10 @@ contract('Exchange', (accounts, d) => {
 
     await TT1.transfer(accounts[1], 1000, { from: accounts[0] })
     await TT2.transfer(accounts[2], 1000, { from: accounts[0] })
+  })
+
+  it('balance: account[5] has the balance of 100 ETH', async () => {
+    await getBalance(accounts[5])
   })
 
   it('approvals: TT1 owner should approve 100 to exchange contract', async () => {
@@ -104,10 +114,8 @@ contract('Exchange', (accounts, d) => {
       signature.s
     )
 
-    assert(isValidInContracts)
-
     const isValidInJs = isValidSignature(hash, signature.signature, accounts[1])
-    assert(isValidInJs)
+    assert(isValidInJs && isValidInContracts)
   })
 
   it('exchange: msg.sender should fillOrder', async () => {
@@ -135,30 +143,17 @@ contract('Exchange', (accounts, d) => {
     const signature = await signOrderHashAsync(hash, accounts[1], false, signer)
 
     await TT1.approve(Exchange.address, 100, { from: accounts[1] })
-    // await TT1.allowance.call(accounts[1], Exchange.address)
-    // assert.strictEqual(allowance.toNumber(), 100)
-
     await TT2.approve(Exchange.address, 100, { from: accounts[2] })
-    // await TT2.allowance.call(accounts[2], Exchange.address)
-    // assert.strictEqual(allowance.toNumber(), 100)
 
-    try {
-      const res = await EXCHANGE.fillOrder(
-        [ order.maker, order.taker, order.makerTokenAddress, order.takerTokenAddress, order.feeRecipient ],
-        [ order.makerTokenAmount, order.takerTokenAmount, order.makerFee, order.takerFee, order.expirationUnixTimestampSec, order.salt ],
-        '4',
-        true,
-        signature.v,
-        signature.r,
-        signature.s,
-        { from: accounts[2] }
-      )
-
-      console.log('filledTakerTokenAmount', res, res.logs[0].args)
-      // assert(isValidInContracts)
-    } catch (e) {
-      console.log(e)
-      throw e
-    }
+    await EXCHANGE.fillOrder(
+      [ order.maker, order.taker, order.makerTokenAddress, order.takerTokenAddress, order.feeRecipient ],
+      [ order.makerTokenAmount, order.takerTokenAmount, order.makerFee, order.takerFee, order.expirationUnixTimestampSec, order.salt ],
+      '4',
+      true,
+      signature.v,
+      signature.r,
+      signature.s,
+      { from: accounts[2] }
+    )
   })
 })
