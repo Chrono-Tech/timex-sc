@@ -13,6 +13,13 @@ async function saveDeployedAddresses (addresses) {
     ...addresses
   }, null, 2))
 }
+
+async function getDeployedAddress (contractName) {
+  const json = JSON.parse(await promisify(fs.readFile)(DEPLOYED_ADDRESSES_PATH))
+  return json[contractName]
+}
+
 module.exports = {
-  saveDeployedAddresses
+  saveDeployedAddresses,
+  getDeployedAddress
 }

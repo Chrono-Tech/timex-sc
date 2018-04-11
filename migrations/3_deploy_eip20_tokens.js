@@ -1,7 +1,7 @@
 const EIP20Factory = artifacts.require('./EIP20Factory.sol')
 const EIP20 = artifacts.require('./EIP20.sol')
 const WETH9 = artifacts.require('./WETH9.sol')
-const { saveDeployedAddresses } = require('./utils')
+const { saveDeployedAddresses, getDeployedAddress } = require('./utils')
 
 const MILLION = '1000000000000000000000000'
 const ERC20_TOKEN_DESCRIPTION = [
@@ -32,12 +32,20 @@ const ERC20_TOKEN_DESCRIPTION = [
     symbol: 'RLT',
     decimals: '18',
     initialAmount: MILLION
+  },
+  {
+    holder: '0xa8e70519d5bc5b548d6fc490bf39c4288d1286c7',
+    name: 'Artem Valyakin',
+    symbol: 'AVT',
+    decimals: '18',
+    initialAmount: MILLION
   }
 ]
 
 module.exports = async (deployer) => {
   deployer.then(async () => {
-    const factory = await EIP20Factory.deployed()
+    const factoryAddress = await getDeployedAddress('EIP20Factory')
+    const factory = await EIP20Factory.at(factoryAddress)
 
     const deployedAddresses = {}
     for (let { holder, name, symbol, decimals, initialAmount } of ERC20_TOKEN_DESCRIPTION) {

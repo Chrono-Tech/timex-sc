@@ -6,20 +6,19 @@ const { saveDeployedAddresses } = require('./utils')
 
 module.exports = async (deployer) => {
   deployer.then(async () => {
-    await deployer.deploy(ZRXToken)
-    await deployer.deploy(TokenTransferProxy)
-    await deployer.deploy(Exchange, ZRXToken.address, TokenTransferProxy.address)
+    const zrxToken = await ZRXToken.new()
+    const tokenTransferProxy = await TokenTransferProxy.new()
+    const exchange = await Exchange.new(zrxToken.address, tokenTransferProxy.address)
 
-    const ttpDeployed = await TokenTransferProxy.deployed()
-    await ttpDeployed.addAuthorizedAddress(Exchange.address)
+    await tokenTransferProxy.addAuthorizedAddress(exchange.address)
 
-    await deployer.deploy(EIP20Factory)
+    const eip20Factory = await EIP20Factory.new()
 
     await saveDeployedAddresses({
       ZRXT: ZRXToken.address,
-      TokenTransferProxy: TokenTransferProxy.address,
-      Exchange: Exchange.address,
-      EIP20Factory: EIP20Factory.address
+      TokenTransferProxy: tokenTransferProxy.address,
+      Exchange: exchange.address,
+      EIP20Factory: eip20Factory.address
     })
   })
 }

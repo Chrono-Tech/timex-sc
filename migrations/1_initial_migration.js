@@ -3,9 +3,9 @@ const { saveDeployedAddresses } = require('./utils')
 
 module.exports = (deployer) => {
   deployer.then(async () => {
-    await deployer.deploy(Migrations)
+    const migrations = await Migrations.new()
     await saveDeployedAddresses({
-      Migrations: Migrations.address
+      Migrations: migrations.address
     })
   })
 }
