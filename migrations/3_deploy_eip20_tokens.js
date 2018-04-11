@@ -4,7 +4,7 @@ const WETH9 = artifacts.require('./WETH9.sol')
 const { saveDeployedAddresses, getDeployedAddress } = require('./utils')
 
 const MILLION = '1000000000000000000000000'
-const ERC20_TOKEN_DESCRIPTION = [
+const ERC20_TOKEN_DESCRIPTIONS = [
   {
     holder: '0x1134cc86b45039cc211c6d1d2e4b3c77f60207ed',
     name: 'Igor Pavlenko',
@@ -48,7 +48,7 @@ module.exports = async (deployer) => {
     const factory = await EIP20Factory.at(factoryAddress)
 
     const deployedAddresses = {}
-    for (let { holder, name, symbol, decimals, initialAmount } of ERC20_TOKEN_DESCRIPTION) {
+    for (let { holder, name, symbol, decimals, initialAmount } of ERC20_TOKEN_DESCRIPTIONS) {
       const tokenAddr = await factory.createEIP20.call(initialAmount, name, decimals, symbol)
       await factory.createEIP20(initialAmount, name, decimals, symbol)
       console.log(`[${symbol}] address is: ${tokenAddr}`)
