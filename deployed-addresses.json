@@ -1,0 +1,12 @@
+{
+  "Migrations": "0x42f8622258a0f61c51aff5ff64dd9d2248a6736a",
+  "ZRXT": "0x7257fa321c53e5ef3aac26415dc3f91317aedb49",
+  "TokenTransferProxy": "0x8d957c07d1dc1957d0515a092487846077e2ea53",
+  "Exchange": "0x5eacd4e2c507a00d9e2bbf5e36fc5cd694ffe54d",
+  "EIP20Factory": "0x719a78ebd9a4ff13ba93f066f0c419973df915c6",
+  "IPT": "0x5560947eb17eda7e06ec1747cfd38bca58283976",
+  "MKT": "0x75a137a599f45e4962cf77645ec34f61e931b8c1",
+  "AKT": "0xda1959d6655b35301329bd1db1358e1297882db9",
+  "RLT": "0xa46a24efc342dd1a130fdfc528c844fbf23e51dc",
+  "WETH": "0x1ca07c76497582ba82a23c748511eac0e5ee89f4"
+}
