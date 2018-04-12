@@ -15,7 +15,7 @@ module.exports = async (deployer) => {
     const eip20Factory = await EIP20Factory.new()
 
     await saveDeployedAddresses({
-      ZRXT: ZRXToken.address,
+      ZRXT: zrxToken.address,
       TokenTransferProxy: tokenTransferProxy.address,
       Exchange: exchange.address,
       EIP20Factory: eip20Factory.address
