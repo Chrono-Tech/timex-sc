@@ -196,4 +196,43 @@ contract('Exchange', (accounts, d) => {
 
     assert.strictEqual(res.toNumber(), 10)
   })
+
+  it('cancelOrder successfull', async () => {
+    const order = new Order({
+      exchangeContractAddress: EXCHANGE.address,
+      maker: accounts[1],
+      taker: accounts[2],
+      makerTokenAmount: '40',
+      takerTokenAmount: '50',
+      makerTokenAddress: TT1.address,
+      takerTokenAddress: TT2.address,
+      salt: '21240',
+      expirationUnixTimestampSec: 1700000000,
+      makerFee: '4',
+      takerFee: '5',
+      feeRecipient: accounts[0]
+    })
+
+    const hash = getOrderHashHex(order)
+
+    const unavailableBeforeCancel = await EXCHANGE.getUnavailableTakerTokenAmount.call(hash)
+    assert.strictEqual(unavailableBeforeCancel.toNumber(), 0, 'Should be 0 unavailable before cancel')
+
+    const callCancellAmountResult = await EXCHANGE.cancelOrder.call(
+      [ order.maker, order.taker, order.makerTokenAddress, order.takerTokenAddress, order.feeRecipient ],
+      [ order.makerTokenAmount, order.takerTokenAmount, order.makerFee, order.takerFee, order.expirationUnixTimestampSec, order.salt ],
+      '10',
+      { from: accounts[1] })
+
+    assert.strictEqual(callCancellAmountResult.toNumber(), 10, 'Call cancelOrder shoult return 10')
+
+    await EXCHANGE.cancelOrder(
+      [ order.maker, order.taker, order.makerTokenAddress, order.takerTokenAddress, order.feeRecipient ],
+      [ order.makerTokenAmount, order.takerTokenAmount, order.makerFee, order.takerFee, order.expirationUnixTimestampSec, order.salt ],
+      '10',
+      { from: accounts[1] })
+
+    const unavailableAfterCancel = await EXCHANGE.getUnavailableTakerTokenAmount.call(hash)
+    assert.strictEqual(unavailableAfterCancel.toNumber(), 10, 'Should be 10 unavailable after cancel')
+  })
 })
