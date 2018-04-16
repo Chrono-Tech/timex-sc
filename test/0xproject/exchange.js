@@ -53,14 +53,14 @@ contract('Exchange', (accounts, d) => {
   })
 
   it('approvals: TT1 owner should approve 100 to exchange contract', async () => {
-    await TT1.approve(Exchange.address, 100, { from: accounts[1] })
-    const allowance = await TT1.allowance.call(accounts[1], Exchange.address)
+    await TT1.approve(EXCHANGE.address, 100, { from: accounts[1] })
+    const allowance = await TT1.allowance.call(accounts[1], EXCHANGE.address)
     assert.strictEqual(allowance.toNumber(), 100)
   })
 
   it('approvals: TT2 owner should approve 100 to exchange contract', async () => {
-    await TT2.approve(Exchange.address, 100, { from: accounts[2] })
-    const allowance = await TT2.allowance.call(accounts[2], Exchange.address)
+    await TT2.approve(EXCHANGE.address, 100, { from: accounts[2] })
+    const allowance = await TT2.allowance.call(accounts[2], EXCHANGE.address)
     assert.strictEqual(allowance.toNumber(), 100)
   })
 
@@ -127,7 +127,7 @@ contract('Exchange', (accounts, d) => {
 
   it('exchange: Exchange.address can be authorized', async () => {
     await TOKEN_TRANSFER_PROXY.addAuthorizedAddress(
-      Exchange.address,
+      EXCHANGE.address,
       { from: accounts[0] } // only owner can call it
     )
   })
