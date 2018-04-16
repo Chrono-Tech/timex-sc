@@ -235,4 +235,100 @@ contract('Exchange', (accounts, d) => {
     const unavailableAfterCancel = await EXCHANGE.getUnavailableTakerTokenAmount.call(hash)
     assert.strictEqual(unavailableAfterCancel.toNumber(), 10, 'Should be 10 unavailable after cancel')
   })
+
+  it('fillOrdersUpTo successfull', async () => {
+    const { order: order1, signature: signature1 } = await createOrderAndSignature({
+      makerTokenAmount: '10',
+      takerTokenAmount: '20',
+      privateKey: privateKeys[1]
+    })
+
+    const { order: order2, signature: signature2 } = await createOrderAndSignature({
+      makerTokenAmount: '30',
+      takerTokenAmount: '60',
+      privateKey: privateKeys[1]
+    })
+
+    await TT1.approve(TOKEN_TRANSFER_PROXY.address, 100, { from: accounts[1] })
+    await TT2.approve(TOKEN_TRANSFER_PROXY.address, 100, { from: accounts[2] })
+
+    await TOKEN_TRANSFER_PROXY.addAuthorizedAddress(
+      EXCHANGE.address,
+      { from: accounts[0] } // only owner can call it
+    )
+
+    const { orderAddresses, orderValues, v, r, s } = ordersToFillOrdersUpToArguments([
+      { order: order1, signature: signature1 },
+      { order: order2, signature: signature2 }
+    ])
+
+    await EXCHANGE.fillOrdersUpTo(
+      orderAddresses,
+      orderValues,
+      '50',
+      true,
+      v,
+      r,
+      s,
+      { from: accounts[2] })
+
+    const unavailableOrder1Amount = await EXCHANGE.getUnavailableTakerTokenAmount.call(getOrderHashHex(order1))
+    assert.strictEqual(unavailableOrder1Amount.toNumber(), 20, 'Order 1 must have 20 unavailable')
+
+    const unavailableOrder2Amount = await EXCHANGE.getUnavailableTakerTokenAmount.call(getOrderHashHex(order2))
+    assert.strictEqual(unavailableOrder2Amount.toNumber(), 30, 'Order 2 must have 30 unavailable')
+
+    function ordersToFillOrdersUpToArguments (orderAndSignatures) {
+      const orderAddresses = []
+      const orderValues = []
+      const v = []
+      const r = []
+      const s = []
+      for (let i = 0; i < orderAndSignatures.length; ++i) {
+        const { order, signature } = orderAndSignatures[i]
+        orderAddresses.push([ order.maker, order.taker, order.makerTokenAddress, order.takerTokenAddress, order.feeRecipient ])
+        orderValues.push([ order.makerTokenAmount, order.takerTokenAmount, order.makerFee, order.takerFee, order.expirationUnixTimestampSec, order.salt ])
+        v.push(signature.v)
+        r.push(signature.r)
+        s.push(signature.s)
+      }
+      return {
+        orderAddresses,
+        orderValues,
+        v,
+        r,
+        s
+      }
+    }
+
+    async function createOrderAndSignature ({ makerTokenAmount, takerTokenAmount, privateKey }) {
+      const order = new Order({
+        exchangeContractAddress: EXCHANGE.address,
+        maker: accounts[1],
+        taker: accounts[2],
+        makerTokenAmount,
+        takerTokenAmount,
+        makerTokenAddress: TT1.address,
+        takerTokenAddress: TT2.address,
+        salt: '21240',
+        expirationUnixTimestampSec: 1600000000,
+        makerFee: '0',
+        takerFee: '0',
+        feeRecipient: accounts[0]
+      })
+
+      const hash = getOrderHashHex(order)
+      const signer = {
+        async sign (data) {
+          return sign(data, `0x${privateKey}`)
+        }
+      }
+      const signature = await signOrderHashAsync(hash, accounts[1], false, signer)
+
+      return {
+        order,
+        signature
+      }
+    }
+  })
 })
