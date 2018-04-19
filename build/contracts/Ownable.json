@@ -36,14 +36,14 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b60008054600160a060020a033316600160a060020a031990911617905561017f8061003b6000396000f30060606040526004361061004b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b8114610050578063f2fde38b1461008c575b600080fd5b341561005b57600080fd5b6100636100ba565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b341561009757600080fd5b6100b873ffffffffffffffffffffffffffffffffffffffff600435166100d6565b005b60005473ffffffffffffffffffffffffffffffffffffffff1681565b6000543373ffffffffffffffffffffffffffffffffffffffff9081169116146100fe57600080fd5b73ffffffffffffffffffffffffffffffffffffffff811615610150576000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff83161790555b505600a165627a7a7230582009478fba6e5114960c18d2a3468d9d5b7dabdba16b6748c365c01d25aa06e7220029",
-  "deployedBytecode": "0x60606040526004361061004b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b8114610050578063f2fde38b1461008c575b600080fd5b341561005b57600080fd5b6100636100ba565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b341561009757600080fd5b6100b873ffffffffffffffffffffffffffffffffffffffff600435166100d6565b005b60005473ffffffffffffffffffffffffffffffffffffffff1681565b6000543373ffffffffffffffffffffffffffffffffffffffff9081169116146100fe57600080fd5b73ffffffffffffffffffffffffffffffffffffffff811615610150576000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff83161790555b505600a165627a7a7230582009478fba6e5114960c18d2a3468d9d5b7dabdba16b6748c365c01d25aa06e7220029",
+  "bytecode": "0x6060604052341561000f57600080fd5b60008054600160a060020a033316600160a060020a031990911617905561017f8061003b6000396000f30060606040526004361061004b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b8114610050578063f2fde38b1461008c575b600080fd5b341561005b57600080fd5b6100636100ba565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b341561009757600080fd5b6100b873ffffffffffffffffffffffffffffffffffffffff600435166100d6565b005b60005473ffffffffffffffffffffffffffffffffffffffff1681565b6000543373ffffffffffffffffffffffffffffffffffffffff9081169116146100fe57600080fd5b73ffffffffffffffffffffffffffffffffffffffff811615610150576000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff83161790555b505600a165627a7a72305820f98ac67e4e3a1e3ef18e0667d45dae0a958cf3a31b070478c29b2405b2070f2e0029",
+  "deployedBytecode": "0x60606040526004361061004b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416638da5cb5b8114610050578063f2fde38b1461008c575b600080fd5b341561005b57600080fd5b6100636100ba565b60405173ffffffffffffffffffffffffffffffffffffffff909116815260200160405180910390f35b341561009757600080fd5b6100b873ffffffffffffffffffffffffffffffffffffffff600435166100d6565b005b60005473ffffffffffffffffffffffffffffffffffffffff1681565b6000543373ffffffffffffffffffffffffffffffffffffffff9081169116146100fe57600080fd5b73ffffffffffffffffffffffffffffffffffffffff811615610150576000805473ffffffffffffffffffffffffffffffffffffffff191673ffffffffffffffffffffffffffffffffffffffff83161790555b505600a165627a7a72305820f98ac67e4e3a1e3ef18e0667d45dae0a958cf3a31b070478c29b2405b2070f2e0029",
   "sourceMap": "192:345:9:-;;;238:65;;;;;;;;280:5;:18;;-1:-1:-1;;;;;288:10:9;280:18;-1:-1:-1;;;;;;280:18:9;;;;;;192:345;;;;;;",
   "deployedSourceMap": "192:345:9:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;213:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;382:153;;;;;;;;;;;;;;;;;;213:20;;;;;;:::o;382:153::-;358:5;;344:10;358:5;344:19;;;358:5;;344:19;336:28;;;;;;470:22;;;;466:65;;506:5;:16;;-1:-1:-1;;506:16:9;;;;;;;466:65;382:153;:::o",
   "source": "pragma solidity ^0.4.18;\n\n/*\n* Ownable\n*\n* Base contract with an owner.\n* Provides onlyOwner modifier, which prevents function from running if it is called by anyone other than the owner.\n*/\n\ncontract Ownable {\n  address public owner;\n\n  function Ownable()\n      public\n  {\n      owner = msg.sender;\n  }\n\n  modifier onlyOwner() {\n      require(msg.sender == owner);\n      _;\n  }\n\n  function transferOwnership(address newOwner)\n      public\n      onlyOwner\n  {\n      if (newOwner != address(0)) {\n          owner = newOwner;\n      }\n  }\n}\n",
-  "sourcePath": "/home/pavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/Ownable/Ownable.sol",
+  "sourcePath": "/home/ipavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/Ownable/Ownable.sol",
   "ast": {
-    "absolutePath": "/home/pavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/Ownable/Ownable.sol",
+    "absolutePath": "/home/ipavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/Ownable/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
         2453
@@ -564,7 +564,7 @@
     "src": "0:538:9"
   },
   "legacyAST": {
-    "absolutePath": "/home/pavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/Ownable/Ownable.sol",
+    "absolutePath": "/home/ipavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/Ownable/Ownable.sol",
     "exportedSymbols": {
       "Ownable": [
         2453
@@ -1090,5 +1090,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-05T08:11:07.248Z"
+  "updatedAt": "2018-04-16T19:07:57.009Z"
 }

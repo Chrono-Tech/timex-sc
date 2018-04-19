@@ -15,7 +15,8 @@
     "publish": "truffle publish",
     "pretest": "npm run lint",
     "test": "truffle test",
-    "coverage": "solidity-coverage"
+    "coverage": "solidity-coverage",
+    "hdwallet": "node lib/hdwallet"
   },
   "dependencies": {
     "@laborx/exchange.core": "git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#develop"

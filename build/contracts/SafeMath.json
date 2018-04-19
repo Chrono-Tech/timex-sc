@@ -1,14 +1,14 @@
 {
   "contractName": "SafeMath",
   "abi": [],
-  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a7230582008700efcae9597f9fb5d16ba048a222357be7ed108b1bb94661574747ba198160029",
-  "deployedBytecode": "0x6060604052600080fd00a165627a7a7230582008700efcae9597f9fb5d16ba048a222357be7ed108b1bb94661574747ba198160029",
+  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a72305820d3a1fe6491d0163e375bb29cef787dff79260ee61d44092f0499346a3c8bd6770029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a72305820d3a1fe6491d0163e375bb29cef787dff79260ee61d44092f0499346a3c8bd6770029",
   "sourceMap": "26:1238:10:-;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "26:1238:10:-;;;;;",
   "source": "pragma solidity ^0.4.18;\n\ncontract SafeMath {\n    function safeMul(uint a, uint b)\n        internal\n        pure\n        returns (uint256)\n    {\n        uint c = a * b;\n        assert(a == 0 || c / a == b);\n        return c;\n    }\n\n    function safeDiv(uint a, uint b)\n        internal\n        pure\n        returns (uint256)\n    {\n        uint c = a / b;\n        return c;\n    }\n\n    function safeSub(uint a, uint b)\n        internal\n        pure\n        returns (uint256)\n    {\n        assert(b <= a);\n        return a - b;\n    }\n\n    function safeAdd(uint a, uint b)\n        internal\n        pure\n        returns (uint256)\n    {\n        uint c = a + b;\n        assert(c >= a);\n        return c;\n    }\n\n    function max64(uint64 a, uint64 b)\n        internal\n        pure\n        returns (uint256)\n    {\n        return a >= b ? a : b;\n    }\n\n    function min64(uint64 a, uint64 b)\n        internal\n        pure\n        returns (uint256)\n    {\n        return a < b ? a : b;\n    }\n\n    function max256(uint256 a, uint256 b)\n        internal\n        pure\n        returns (uint256)\n    {\n        return a >= b ? a : b;\n    }\n\n    function min256(uint256 a, uint256 b)\n        internal\n        pure\n        returns (uint256)\n    {\n        return a < b ? a : b;\n    }\n}\n",
-  "sourcePath": "/home/pavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/SafeMath/SafeMath.sol",
+  "sourcePath": "/home/ipavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/SafeMath/SafeMath.sol",
   "ast": {
-    "absolutePath": "/home/pavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/SafeMath/SafeMath.sol",
+    "absolutePath": "/home/ipavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/SafeMath/SafeMath.sol",
     "exportedSymbols": {
       "SafeMath": [
         2616
@@ -2043,7 +2043,7 @@
     "src": "0:1265:10"
   },
   "legacyAST": {
-    "absolutePath": "/home/pavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/SafeMath/SafeMath.sol",
+    "absolutePath": "/home/ipavlenko/Projects/Exchange/laborx.exchange.contracts/contracts/utils/SafeMath/SafeMath.sol",
     "exportedSymbols": {
       "SafeMath": [
         2616
@@ -4083,5 +4083,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-04-05T08:11:07.249Z"
+  "updatedAt": "2018-04-16T19:07:57.034Z"
 }
