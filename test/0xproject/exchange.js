@@ -9,7 +9,7 @@ const TokenTransferProxy = artifacts.require('./TokenTransferProxy.sol')
 const ZRXToken = artifacts.require('./ZRXToken.sol')
 const Exchange = artifacts.require('./Exchange.sol')
 
-const { getOrderHashHex, signOrderHashAsync, isValidSignature, sign, Order } = require('@laborx/exchange.core')
+const { getOrderHashHex, signOrderHashAsync, isValidSignature, isValidSignatureVRS, sign, Order } = require('@laborx/exchange.core')
 
 let ZRX, TT1, TT2, TOKEN_TRANSFER_PROXY, EXCHANGE
 
@@ -122,6 +122,9 @@ contract('Exchange', (accounts, d) => {
     )
 
     const isValidInJs = isValidSignature(hash, signature.signature, accounts[1])
+    const isValidVRSInJs = isValidSignatureVRS(hash, { ...signature }, accounts[1])
+
+    assert(isValidVRSInJs && isValidInJs)
     assert(isValidInJs && isValidInContracts)
   })
 
