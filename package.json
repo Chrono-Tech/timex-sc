@@ -17,7 +17,8 @@
     "test": "truffle test",
     "coverage": "solidity-coverage",
     "hdwallet": "node lib/hdwallet",
-    "migrate:production": "truffle migrate && cp deployed-addresses-local.json ../laborx.exchange.abi/deployed-addresses.json"
+    "migrate:production": "truffle migrate && cp deployed-addresses-local.json ../laborx.exchange.abi/deployed-addresses.json",
+    "migrate:ganache": "truffle migrate --network ganache && cp deployed-addresses-local.json ../laborx.exchange.abi/deployed-addresses.json"
   },
   "dependencies": {
     "@laborx/exchange.core": "git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#develop"
