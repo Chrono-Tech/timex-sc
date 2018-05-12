@@ -41,7 +41,7 @@ module.exports = {
     },
     stage: {
       provider: function () {
-        return new HDWalletProvider(mnemonic, 'http://node1.parity.tp.ntr1x.com:8545')
+        return new HDWalletProvider(mnemonic, 'https://node1.parity.tp.ntr1x.com:8545')
       },
       network_id: 135744, // 0x21240
       gas: 4700000,
