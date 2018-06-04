@@ -21,7 +21,7 @@
     "cp:from:abi:addresses": "cp ../laborx.exchange.abi/deployed-addresses.json deployed-addresses.json",
     "cp:to:abi:contracts": "cp -r ./build/contracts ../laborx.exchange.abi",
     "cp:to:abi:addresses": "cp deployed-addresses.json ../laborx.exchange.abi/deployed-addresses.json",
-    "migrate:production": "yarn cp:from:abi:contracts && yarn cp:from:abi:addresses && yarn migrate && yarn cp:to:abi:contracts && yarn cp:to:abi:addresses",
+    "migrate:stage": "yarn cp:from:abi:contracts && yarn cp:from:abi:addresses && truffle migrate --network stage && yarn cp:to:abi:contracts && yarn cp:to:abi:addresses",
     "migrate:ganache": "truffle migrate --network ganache --reset"
   },
   "dependencies": {

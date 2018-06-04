@@ -2,8 +2,9 @@
 // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
 pragma solidity ^0.4.21;
 
+import "../utils/Ownable/Ownable.sol";
 
-contract EIP20Interface {
+contract EIP20Interface is Ownable {
     /* This is a slight change to the ERC20 base standard.
     function totalSupply() constant returns (uint256 supply);
     is replaced with:
