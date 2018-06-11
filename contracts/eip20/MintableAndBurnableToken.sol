@@ -14,6 +14,7 @@ contract MintableAndBurnableToken is EIP20 {
       }
 
   event Burn(address indexed from, uint256 value);
+  event WithdrawBurn(address indexed from, uint256 value, string externalAddress);
 
   event Mint(address indexed to, uint256 amount);
 
@@ -29,6 +30,22 @@ contract MintableAndBurnableToken is EIP20 {
     balances[_who] = balances[_who].sub(_value);
     totalSupply = totalSupply.sub(_value);
     emit Burn(_who, _value);
+    emit Transfer(_who, address(0), _value);
+  }
+
+  /**
+  * @dev Burns a specific amount of tokens for withdraw
+  */
+  function withdrawBurn(uint256 _value, string externalAddress) public {
+    address _who = msg.sender;
+    require(_value <= balances[_who]);
+    // no need to require value <= totalSupply, since that would imply the
+    // sender's balance is greater than the totalSupply, which *should* be an assertion failure
+
+    balances[_who] = balances[_who].sub(_value);
+    totalSupply = totalSupply.sub(_value);
+    emit Burn(_who, _value);
+    emit WithdrawBurn(_who, _value, externalAddress);
     emit Transfer(_who, address(0), _value);
   }
 
