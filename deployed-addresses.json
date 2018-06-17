@@ -10,5 +10,6 @@
   "RLT": "0x7fb3aa357e42eea3ab68e1a62906cf33f495ef03",
   "WETH": "0x910dc46f9f0433f2dcc9ff9a86f28607ef233aa0",
   "AVT": "0x3301b85982c37ed48b0a78decce2dea4819fcce3",
-  "WBTC": "0xca6a421319d31af4b5b680dd083af54f50cf740e"
+  "WBTC": "0xca6a421319d31af4b5b680dd083af54f50cf740e",
+  "M_WETH": "0x5fb1d16ce7e5f2cbbc9554079de5b6aee4e4ba85"
 }
