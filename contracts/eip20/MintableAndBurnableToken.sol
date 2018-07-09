@@ -3,15 +3,18 @@ pragma solidity ^0.4.11;
 import "./EIP20.sol";
 
 contract MintableAndBurnableToken is EIP20 {
-
-  function MintableAndBurnableToken(
-          uint256 _initialAmount,
-          string _tokenName,
-          uint8 _decimalUnits,
-          string _tokenSymbol
-      ) EIP20(_initialAmount, _tokenName, _decimalUnits, _tokenSymbol) {
-
-      }
+  constructor(
+      uint256 _initialAmount,
+      string _tokenName,
+      uint8 _decimalUnits,
+      string _tokenSymbol
+  ) EIP20(
+    _initialAmount,
+    _tokenName,
+    _decimalUnits,
+    _tokenSymbol
+  ) public {
+  }
 
   event Burn(address indexed from, uint256 value);
   event WithdrawBurn(address indexed from, uint256 value, string externalAddress);

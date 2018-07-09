@@ -85,7 +85,7 @@ contract Exchange is SafeMath {
         bytes32 orderHash;
     }
 
-    function Exchange(address _zrxToken, address _tokenTransferProxy) public {
+    constructor(address _zrxToken, address _tokenTransferProxy) public {
         ZRX_TOKEN_CONTRACT = _zrxToken;
         TOKEN_TRANSFER_PROXY_CONTRACT = _tokenTransferProxy;
     }

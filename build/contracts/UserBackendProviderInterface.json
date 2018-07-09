@@ -1,0 +1,226 @@
+{
+  "contractName": "UserBackendProviderInterface",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getUserBackend",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "/**\n* Copyright 2017–2018, LaborX PTY\n* Licensed under the AGPL Version 3 license.\n*/\n\npragma solidity ^0.4.21;\n\n\ninterface UserBackendProviderInterface {\n\tfunction getUserBackend() external view returns (address);\n}",
+  "sourcePath": "solidity-user-lib/contracts/UserBackendProviderInterface.sol",
+  "ast": {
+    "absolutePath": "solidity-user-lib/contracts/UserBackendProviderInterface.sol",
+    "exportedSymbols": {
+      "UserBackendProviderInterface": [
+        13290
+      ]
+    },
+    "id": 13291,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13284,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "89:24:26"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 13290,
+        "linearizedBaseContracts": [
+          13290
+        ],
+        "name": "UserBackendProviderInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 13289,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getUserBackend",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 13285,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "181:2:26"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 13288,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13287,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13289,
+                  "src": "207:7:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 13286,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "207:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "206:9:26"
+            },
+            "scope": 13290,
+            "src": "158:58:26",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 13291,
+        "src": "116:102:26"
+      }
+    ],
+    "src": "89:129:26"
+  },
+  "legacyAST": {
+    "absolutePath": "solidity-user-lib/contracts/UserBackendProviderInterface.sol",
+    "exportedSymbols": {
+      "UserBackendProviderInterface": [
+        13290
+      ]
+    },
+    "id": 13291,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13284,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "89:24:26"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 13290,
+        "linearizedBaseContracts": [
+          13290
+        ],
+        "name": "UserBackendProviderInterface",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": null,
+            "id": 13289,
+            "implemented": false,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getUserBackend",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 13285,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "181:2:26"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 13288,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13287,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 13289,
+                  "src": "207:7:26",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 13286,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "207:7:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "206:9:26"
+            },
+            "scope": 13290,
+            "src": "158:58:26",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 13291,
+        "src": "116:102:26"
+      }
+    ],
+    "src": "89:129:26"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.1",
+  "updatedAt": "2018-07-09T12:14:01.223Z"
+}

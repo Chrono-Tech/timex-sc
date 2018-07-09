@@ -24,7 +24,7 @@ contract UnlimitedAllowanceToken is EIP20 {
 
     uint constant MAX_UINT = 2**256 - 1;
 
-    function UnlimitedAllowanceToken(
+    constructor(
       uint256 _initialAmount,
       string _tokenName,
       uint8 _decimalUnits,

@@ -7,8 +7,7 @@ contract WETH is MintableAndBurnableToken {
   event  Deposit(address indexed dst, uint wad);
   event  Withdrawal(address indexed src, uint wad);
 
-  function WETH()
-    MintableAndBurnableToken(0, 'Wrapped Ether', 18, 'WETH') { }
+  constructor() MintableAndBurnableToken(0, 'Wrapped Ether', 18, 'WETH') public { }
 
   function() public payable {
       deposit();
