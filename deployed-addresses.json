@@ -2,7 +2,7 @@
   "Migrations": "0x102ca55d750105a0e4b39c2f1ed6a775c11a2a0d",
   "ZRXT": "0x40d899bd17318b59c6a67a7ae04607ee70b61d7e",
   "TokenTransferProxy": "0x143dc94cea2191e0beac7492171234f4af5f4149",
-  "Exchange": "0x5800e9d4af4d587f095b65b2fb024999da34147e",
+  "Exchange": "0x12905ae9f341bed848b605fb2c67d25a07678350",
   "EIP20Factory": "0xb4360ed916c855acbc1a46e1e2eea812067601a8",
   "IPT": "0x0f9d2d3b0527b8e9a6156ecbd7f865a6019dd5b2",
   "MKT": "0x3b24d5bcd5eb22e023b6bb702ebca0e6a62f1345",
@@ -11,5 +11,6 @@
   "WETH": "0x63cf37c0ae17b3afb47fd3984e6fb82797f7fcf0",
   "AVT": "0x3301b85982c37ed48b0a78decce2dea4819fcce3",
   "WBTC": "0xca6a421319d31af4b5b680dd083af54f50cf740e",
-  "M_WETH": "0x5fb1d16ce7e5f2cbbc9554079de5b6aee4e4ba85"
+  "M_WETH": "0x5fb1d16ce7e5f2cbbc9554079de5b6aee4e4ba85",
+  "TIME": "0x9d90c4a5da0eaee5a7ae5594fe691d6eda518743"
 }
