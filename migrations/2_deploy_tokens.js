@@ -144,6 +144,7 @@ module.exports = async (deployer) => {
       const token = await MintableAndBurnableToken.new(initialAmount, name, decimals, symbol)
       console.log(`[${symbol}] address is: ${token.address}`)
       deployedAddresses[symbol.toUpperCase()] = token.address
+      await token.transferOwnership(holder)
       await token.transfer(holder, initialAmount)
     }
 
