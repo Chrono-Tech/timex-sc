@@ -6,6 +6,8 @@
       "avoid-sha3": "warn",
       "compiler-fixed": false,
       "indent": ["warn", 4],
+      "code-complexity": 8,
+      "function-max-lines": 100,
       "max-line-length": 150,
       "var-name-mixedcase": false,
       "func-param-name-mixedcase": false

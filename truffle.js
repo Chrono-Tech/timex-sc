@@ -1,11 +1,6 @@
-const assert = require('assert')
+const secrets = require('./secrets')
 const HDWalletProvider = require('truffle-hdwallet-provider')
-const fs = require('fs')
 
-// First read in the secrets.json to get our mnemonic
-assert(fs.existsSync('secrets.json'))
-
-const secrets = JSON.parse(fs.readFileSync('secrets.json', 'utf8'))
 const mnemonic = secrets.mnemonic
 
 module.exports = {
@@ -51,7 +46,9 @@ module.exports = {
       provider: function () {
         return new HDWalletProvider(mnemonic, 'http://127.0.0.1:7545')
       },
-      network_id: 5777
+      network_id: 5777, // 0x21240
+      gas: 4700000,
+      gasPrice: 0x01
     },
     testrpc: {
       network_id: 'default'

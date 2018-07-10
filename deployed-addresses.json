@@ -1,2 +1,21 @@
 {
+  "Migrations": "0x6645e18fc8423df6c3b0cbbe4bed7590d26df4fa",
+  "EIP20Factory": "0xee4aebc916f6742c884c12590a2866c5ab5824e2",
+  "IPT": "0x083bb26fa546529d80c74b1253d706b770b0347b",
+  "MKT": "0x4c1147b24c8b750c4dcf521c2b57dd866ca00212",
+  "AKT": "0x91fc9edee213aed3726bcd4f03040544cddc6700",
+  "RLT": "0xf3acb209998b0a6806b7257365551cc6382c3fcf",
+  "AVT": "0xef4dcdfbd3096608b6c7aa2b8763a0f02d5a8bc9",
+  "IFT": "0xb2ef52f42a40e026455a5ae23a01771b4a8ae55e",
+  "BTT": "0xdbeeceb718375b34a5cefd54bdd6e3270b86fc6f",
+  "SLT": "0x7f2f948408aebb5f53f35eaa91c9068b0401f8e8",
+  "TIME": "0x3999a99289accb7f0b7fc1a947a2860dc8bd162c",
+  "WETH": "0xe687cb1bc2a3819de081f187a3c350a94f88763b",
+  "WLHT": "0x49b55f37ba30d9f38deb67d8a22aa3a625588a6e",
+  "WBTC": "0x12e4f64c54912c8838230131686ffdd97506cb48",
+  "WBCC": "0x79cfd672f861b6adf759885a76fa51263bf2373a",
+  "WLTC": "0xd245d4177f1f10a677dfe6119ff593c61deb4726",
+  "IETH": "0x14403b17270155fad035870763ed82df35cfbd98",
+  "TokenTransferProxy": "0xa1ad9a26b258095892b88956c03fce87e367e42c",
+  "Exchange": "0xc2b9f57e5e89f34941cac513ab5ae8a6c80f41a0"
 }
