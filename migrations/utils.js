@@ -12,7 +12,7 @@ async function saveDeployedAddresses (addresses) {
   await promisify(fs.writeFile)(DEPLOYED_ADDRESSES_PATH, JSON.stringify({
     ...json,
     ...addresses
-  }, null, 2))
+  }, null, 2) + '\n')
 }
 
 async function getDeployedAddress (contractName) {

@@ -1,0 +1,11 @@
+( cd ../solidity-eventshistory-lib ; yarn link )
+( cd ../solidity-roles-lib ; yarn link )
+( cd ../solidity-shared-lib ; yarn link )
+( cd ../solidity-storage-lib ; yarn link )
+( cd ../solidity-user-lib ; yarn link )
+
+yarn link solidity-eventshistory-lib
+yarn link solidity-roles-lib
+yarn link solidity-shared-lib
+yarn link solidity-storage-lib
+yarn link solidity-user-lib

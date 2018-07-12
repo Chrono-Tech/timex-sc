@@ -7,6 +7,7 @@
     "test": "test"
   },
   "scripts": {
+    "deps:link": "/bin/bash ./bin/deps-link",
     "compile": "truffle compile --optimize=1",
     "fix:js": "eslint --fix test/** migrations/**",
     "lint:js": "eslint test/** migrations/**",
@@ -17,18 +18,19 @@
     "test": "truffle test",
     "coverage": "solidity-coverage",
     "hdwallet": "node lib/hdwallet",
-    "cp:from:abi:contracts": "cp -r ../laborx.exchange.abi/contracts/ ./build/",
-    "cp:from:abi:addresses": "cp ../laborx.exchange.abi/deployed-addresses.json deployed-addresses.json",
-    "cp:to:abi:contracts": "cp -r ./build/contracts ../laborx.exchange.abi",
-    "cp:to:abi:addresses": "cp deployed-addresses.json ../laborx.exchange.abi/deployed-addresses.json",
-    "migrate:stage:and:magic": "yarn cp:from:abi:contracts && yarn cp:from:abi:addresses && truffle migrate --network stage && yarn cp:to:abi:contracts && yarn cp:to:abi:addresses",
+    "abi:clear": "rm -f deployed-addresses.json; rm -rf ./build/contracts",
+    "abi:reset": "cp ../laborx.exchange.abi/deployed-addresses.json deployed-addresses.json; rm -rf ./build/contracts; cp -r ../laborx.exchange.abi/contracts/ ./build/",
+    "abi:release": "cp deployed-addresses.json ../laborx.exchange.abi/deployed-addresses.json; rm -rf ../laborx.exchange.abi/contracts; cp -r ./build/contracts ../laborx.exchange.abi",
     "migrate:stage": "truffle migrate --network stage",
     "migrate:stage:reset": "truffle migrate --network stage --reset",
     "migrate:ganache": "truffle migrate --network ganache --reset"
   },
   "dependencies": {
     "@laborx/exchange.core": "git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#develop",
-    "solidity-user-lib": "ChronoBank/solidity-user-lib#develop"
+    "solidity-roles-lib": "alesanro/solidity-roles-lib#solc-downgrade-v0.4.21",
+    "solidity-shared-lib": "alesanro/solidity-shared-lib#solc-downgrade-v0.4.21",
+    "solidity-storage-lib": "alesanro/solidity-storage-lib#solc-downgrade-v0.4.21",
+    "solidity-user-lib": "alesanro/solidity-user-lib#solc-downgrade-v0.4.21"
   },
   "devDependencies": {
     "abi-decoder": "^1.0.9",
@@ -42,9 +44,9 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "joi": "^13.1.2",
-    "solium": "^1.1.7",
     "solhint": "^1.2.1",
     "solidity-coverage": "^0.5.4",
+    "solium": "^1.1.7",
     "truffle": "4.1.5",
     "truffle-hdwallet-provider": "^0.0.5"
   }

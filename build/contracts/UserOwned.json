@@ -1,0 +1,555 @@
+{
+  "contractName": "UserOwned",
+  "abi": [],
+  "bytecode": "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a723058209b3c59cd7896d5da9d8d1d88af88f9eee921e3d7eb776080cb405f7c640d6b0a0029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a723058209b3c59cd7896d5da9d8d1d88af88f9eee921e3d7eb776080cb405f7c640d6b0a0029",
+  "sourceMap": "350:101:29:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "350:101:29:-;;;;;",
+  "source": "/**\n* Copyright 2017–2018, LaborX PTY\n* Licensed under the AGPL Version 3 license.\n*/\n\npragma solidity ^0.4.21;\n\n\nimport \"./UserProxy.sol\";\nimport \"./UserBackendProviderInterface.sol\";\n\n\n/// @title Duplicates structure of Owned contract in order to save memory layout for\n/// UserRouter and other delegatecall-based contracts (BaseByzantiumRouter)\ncontract UserOwned {\n    address internal contractOwner;\n    address internal pendingContractOwner;\n}\n\n\n/// @title Used to provide memory layout for UserRouter \n/// and book an order of properties and an ability to combine with UserOwned contract\ncontract UserBase {\n    UserBackendProviderInterface public backendProvider;\n    address public issuer;\n    UserProxy internal userProxy;\n    address internal recoveryContract;\n    bool public use2FA;\n}",
+  "sourcePath": "solidity-user-lib/contracts/UserBase.sol",
+  "ast": {
+    "absolutePath": "solidity-user-lib/contracts/UserBase.sol",
+    "exportedSymbols": {
+      "UserBase": [
+        13430
+      ],
+      "UserOwned": [
+        13419
+      ]
+    },
+    "id": 13431,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13412,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "89:24:29"
+      },
+      {
+        "absolutePath": "solidity-user-lib/contracts/UserProxy.sol",
+        "file": "./UserProxy.sol",
+        "id": 13413,
+        "nodeType": "ImportDirective",
+        "scope": 13431,
+        "sourceUnit": 13842,
+        "src": "116:25:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "solidity-user-lib/contracts/UserBackendProviderInterface.sol",
+        "file": "./UserBackendProviderInterface.sol",
+        "id": 13414,
+        "nodeType": "ImportDirective",
+        "scope": 13431,
+        "sourceUnit": 13411,
+        "src": "142:44:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Duplicates structure of Owned contract in order to save memory layout for\n UserRouter and other delegatecall-based contracts (BaseByzantiumRouter)",
+        "fullyImplemented": true,
+        "id": 13419,
+        "linearizedBaseContracts": [
+          13419
+        ],
+        "name": "UserOwned",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 13416,
+            "name": "contractOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 13419,
+            "src": "375:30:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 13415,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "375:7:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 13418,
+            "name": "pendingContractOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 13419,
+            "src": "411:37:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 13417,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "411:7:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 13431,
+        "src": "350:101:29"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Used to provide memory layout for UserRouter \n and book an order of properties and an ability to combine with UserOwned contract",
+        "fullyImplemented": true,
+        "id": 13430,
+        "linearizedBaseContracts": [
+          13430
+        ],
+        "name": "UserBase",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 13421,
+            "name": "backendProvider",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "621:51:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_UserBackendProviderInterface_$13410",
+              "typeString": "contract UserBackendProviderInterface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 13420,
+              "name": "UserBackendProviderInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 13410,
+              "src": "621:28:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_UserBackendProviderInterface_$13410",
+                "typeString": "contract UserBackendProviderInterface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 13423,
+            "name": "issuer",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "678:21:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 13422,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "678:7:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 13425,
+            "name": "userProxy",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "705:28:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_UserProxy_$13841",
+              "typeString": "contract UserProxy"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 13424,
+              "name": "UserProxy",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 13841,
+              "src": "705:9:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_UserProxy_$13841",
+                "typeString": "contract UserProxy"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 13427,
+            "name": "recoveryContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "739:33:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 13426,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "739:7:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 13429,
+            "name": "use2FA",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "778:18:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 13428,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "778:4:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 13431,
+        "src": "597:202:29"
+      }
+    ],
+    "src": "89:710:29"
+  },
+  "legacyAST": {
+    "absolutePath": "solidity-user-lib/contracts/UserBase.sol",
+    "exportedSymbols": {
+      "UserBase": [
+        13430
+      ],
+      "UserOwned": [
+        13419
+      ]
+    },
+    "id": 13431,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13412,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "89:24:29"
+      },
+      {
+        "absolutePath": "solidity-user-lib/contracts/UserProxy.sol",
+        "file": "./UserProxy.sol",
+        "id": 13413,
+        "nodeType": "ImportDirective",
+        "scope": 13431,
+        "sourceUnit": 13842,
+        "src": "116:25:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "solidity-user-lib/contracts/UserBackendProviderInterface.sol",
+        "file": "./UserBackendProviderInterface.sol",
+        "id": 13414,
+        "nodeType": "ImportDirective",
+        "scope": 13431,
+        "sourceUnit": 13411,
+        "src": "142:44:29",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Duplicates structure of Owned contract in order to save memory layout for\n UserRouter and other delegatecall-based contracts (BaseByzantiumRouter)",
+        "fullyImplemented": true,
+        "id": 13419,
+        "linearizedBaseContracts": [
+          13419
+        ],
+        "name": "UserOwned",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 13416,
+            "name": "contractOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 13419,
+            "src": "375:30:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 13415,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "375:7:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 13418,
+            "name": "pendingContractOwner",
+            "nodeType": "VariableDeclaration",
+            "scope": 13419,
+            "src": "411:37:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 13417,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "411:7:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 13431,
+        "src": "350:101:29"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": "@title Used to provide memory layout for UserRouter \n and book an order of properties and an ability to combine with UserOwned contract",
+        "fullyImplemented": true,
+        "id": 13430,
+        "linearizedBaseContracts": [
+          13430
+        ],
+        "name": "UserBase",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 13421,
+            "name": "backendProvider",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "621:51:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_UserBackendProviderInterface_$13410",
+              "typeString": "contract UserBackendProviderInterface"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 13420,
+              "name": "UserBackendProviderInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 13410,
+              "src": "621:28:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_UserBackendProviderInterface_$13410",
+                "typeString": "contract UserBackendProviderInterface"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 13423,
+            "name": "issuer",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "678:21:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 13422,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "678:7:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 13425,
+            "name": "userProxy",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "705:28:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_UserProxy_$13841",
+              "typeString": "contract UserProxy"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 13424,
+              "name": "UserProxy",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 13841,
+              "src": "705:9:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_UserProxy_$13841",
+                "typeString": "contract UserProxy"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 13427,
+            "name": "recoveryContract",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "739:33:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 13426,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "739:7:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 13429,
+            "name": "use2FA",
+            "nodeType": "VariableDeclaration",
+            "scope": 13430,
+            "src": "778:18:29",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bool",
+              "typeString": "bool"
+            },
+            "typeName": {
+              "id": 13428,
+              "name": "bool",
+              "nodeType": "ElementaryTypeName",
+              "src": "778:4:29",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bool",
+                "typeString": "bool"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 13431,
+        "src": "597:202:29"
+      }
+    ],
+    "src": "89:710:29"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-07-12T13:16:24.736Z"
+}

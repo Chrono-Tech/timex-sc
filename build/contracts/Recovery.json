@@ -1,0 +1,1793 @@
+{
+  "contractName": "Recovery",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_roles2Library",
+          "type": "address"
+        }
+      ],
+      "name": "setRoles2Library",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_roles2Library",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "prevUser",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "newUser",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "userContract",
+          "type": "address"
+        }
+      ],
+      "name": "UserRecovered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "code",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "sig",
+          "type": "bytes4"
+        }
+      ],
+      "name": "AuthFailedError",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_userContract",
+          "type": "address"
+        },
+        {
+          "name": "_newAddress",
+          "type": "address"
+        }
+      ],
+      "name": "recoverUser",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b604051602080610461833981016040528080519150819050600160a060020a038116151561003c57600080fd5b60008054600160a060020a03909216600160a060020a0319909216919091179055506103f48061006d6000396000f3006060604052600436106100325763ffffffff60e060020a6000350416632637cd7d8114610037578063722c180914610068575b600080fd5b341561004257600080fd5b610056600160a060020a036004351661008d565b60405190815260200160405180910390f35b341561007357600080fd5b610056600160a060020a036004358116906024351661014b565b60006100a533600035600160e060020a0319166102ff565b151561011a577f5133a133185f1023427a2e90f18506b27db994977ce0c0faafd514a7dd109ae03033600035600160e060020a031916604051600160a060020a039384168152919092166020820152600160e060020a03199091166040808301919091526060909101905180910390a1610146565b506000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03831617905560015b919050565b60008061016433600035600160e060020a0319166102ff565b15156101d9577f5133a133185f1023427a2e90f18506b27db994977ce0c0faafd514a7dd109ae03033600035600160e060020a031916604051600160a060020a039384168152919092166020820152600160e060020a03199091166040808301919091526060909101905180910390a16102f8565b83600160a060020a031663ce606ee06040518163ffffffff1660e060020a028152600401602060405180830381600087803b151561021657600080fd5b5af1151561022357600080fd5b5050506040518051915050600160a060020a0384166335f2507f8460405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561027c57600080fd5b5af1151561028957600080fd5b5050506040518051600114905061029f57600080fd5b7f1bc347db794ec96af040fff840bc12e98879673178c6772929e57cc5abc6a571818486604051600160a060020a03938416815291831660208301529091166040808301919091526060909101905180910390a1600191505b5092915050565b600030600160a060020a031683600160a060020a03161415610323575060016103c2565b600054600160a060020a0316151561033d575060006103c2565b600054600160a060020a031663b700961384308560405160e060020a63ffffffff8616028152600160a060020a039384166004820152919092166024820152600160e060020a03199091166044820152606401602060405180830381600087803b15156103a957600080fd5b5af115156103b657600080fd5b50505060405180519150505b929150505600a165627a7a7230582069661d6270351c7e4e5807a6e788d530724306720b1d36d6d182bae5182393880029",
+  "deployedBytecode": "0x6060604052600436106100325763ffffffff60e060020a6000350416632637cd7d8114610037578063722c180914610068575b600080fd5b341561004257600080fd5b610056600160a060020a036004351661008d565b60405190815260200160405180910390f35b341561007357600080fd5b610056600160a060020a036004358116906024351661014b565b60006100a533600035600160e060020a0319166102ff565b151561011a577f5133a133185f1023427a2e90f18506b27db994977ce0c0faafd514a7dd109ae03033600035600160e060020a031916604051600160a060020a039384168152919092166020820152600160e060020a03199091166040808301919091526060909101905180910390a1610146565b506000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a03831617905560015b919050565b60008061016433600035600160e060020a0319166102ff565b15156101d9577f5133a133185f1023427a2e90f18506b27db994977ce0c0faafd514a7dd109ae03033600035600160e060020a031916604051600160a060020a039384168152919092166020820152600160e060020a03199091166040808301919091526060909101905180910390a16102f8565b83600160a060020a031663ce606ee06040518163ffffffff1660e060020a028152600401602060405180830381600087803b151561021657600080fd5b5af1151561022357600080fd5b5050506040518051915050600160a060020a0384166335f2507f8460405160e060020a63ffffffff8416028152600160a060020a039091166004820152602401602060405180830381600087803b151561027c57600080fd5b5af1151561028957600080fd5b5050506040518051600114905061029f57600080fd5b7f1bc347db794ec96af040fff840bc12e98879673178c6772929e57cc5abc6a571818486604051600160a060020a03938416815291831660208301529091166040808301919091526060909101905180910390a1600191505b5092915050565b600030600160a060020a031683600160a060020a03161415610323575060016103c2565b600054600160a060020a0316151561033d575060006103c2565b600054600160a060020a031663b700961384308560405160e060020a63ffffffff8616028152600160a060020a039384166004820152919092166024820152600160e060020a03199091166044820152606401602060405180830381600087803b15156103a957600080fd5b5af115156103b657600080fd5b50505060405180519150505b929150505600a165627a7a7230582069661d6270351c7e4e5807a6e788d530724306720b1d36d6d182bae5182393880029",
+  "sourceMap": "265:638:24:-;;;446:88;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;446:88:24;;-1:-1:-1;;;;;;810:21:15;;;;802:30;;;;;;842:13;:54;;-1:-1:-1;;;;;842:54:15;;;-1:-1:-1;;;;;;842:54:15;;;;;;;;;-1:-1:-1;265:638:24;;;;;;",
+  "deployedSourceMap": "265:638:24:-;;;;;;;;;-1:-1:-1;;;265:638:24;;;;;;;;;;;;;;;;;;909:180:15;;;;;;;;;;-1:-1:-1;;;;;909:180:15;;;;;;;;;;;;;;;;;;;;540:360:24;;;;;;;;;;-1:-1:-1;;;;;540:360:24;;;;;;;;;;909:180:15;1012:4;580:34;594:10;606:7;;-1:-1:-1;;;;;;606:7:15;580:13;:34::i;:::-;579:35;575:133;;;635:42;651:4;657:10;669:7;;-1:-1:-1;;;;;;669:7:15;635:42;;-1:-1:-1;;;;;635:42:15;;;;;;;;;;;;;-1:-1:-1;;;;;;635:42:15;;;;;;;;;;;;;;;;;;;;;;691:7;;575:133;-1:-1:-1;1033:13:15;:30;;-1:-1:-1;;1033:30:15;-1:-1:-1;;;;;1033:30:15;;;;;-1:-1:-1;717:1:15;909:180;;;:::o;540:360:24:-;647:4;668:12;580:34:15;594:10;606:7;;-1:-1:-1;;;;;;606:7:15;580:13;:34::i;:::-;579:35;575:133;;;635:42;651:4;657:10;669:7;;-1:-1:-1;;;;;;669:7:15;635:42;;-1:-1:-1;;;;;635:42:15;;;;;;;;;;;;;-1:-1:-1;;;;;;635:42:15;;;;;;;;;;;;;;;;;;;;;;691:7;;575:133;689:13:24;-1:-1:-1;;;;;683:34:24;;:36;;;;;-1:-1:-1;;;683:36:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;;;739:25:24;;;765:11;739:38;;-1:-1:-1;;;739:38:24;;;;;;-1:-1:-1;;;;;739:38:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;421:1:15;733:44:24;;-1:-1:-1;729:83:24;;793:8;;;729:83;827:47;841:4;847:11;860:13;827:47;;-1:-1:-1;;;;;827:47:24;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;421:1:15;884:9:24;;717:1:15;540:360:24;;;;;:::o;1095:317:15:-;1183:4;1224;-1:-1:-1;;;;;1208:21:15;:4;-1:-1:-1;;;;;1208:21:15;;1204:63;;;-1:-1:-1;1252:4:15;1245:11;;1204:63;1289:13;;-1:-1:-1;;;;;1289:13:15;1281:29;1277:72;;;-1:-1:-1;1333:5:15;1326:12;;1277:72;1366:13;;-1:-1:-1;;;;;1366:13:15;:21;1388:4;1394;1400;1366:39;;-1:-1:-1;;;1366:39:15;;;;;;-1:-1:-1;;;;;1366:39:15;;;;;;;;;;;;;;;-1:-1:-1;;;;;;1366:39:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;1095:317:15;;;;;:::o",
+  "source": "/**\n * Copyright 2017–2018, LaborX PTY\n * Licensed under the AGPL Version 3 license.\n */\n\npragma solidity ^0.4.21;\n\n\nimport \"solidity-shared-lib/contracts/Owned.sol\";\nimport \"solidity-roles-lib/contracts/Roles2LibraryAdapter.sol\";\nimport \"./UserInterface.sol\";\n\n\ncontract Recovery is Roles2LibraryAdapter {\n\n    uint constant RECOVERY_SCOPE = 19000;\n\n    event UserRecovered(address prevUser, address newUser, UserInterface userContract);\n\n    function Recovery(address _roles2Library) Roles2LibraryAdapter(_roles2Library) public {}\n\n    function recoverUser(UserInterface _userContract, address _newAddress) \n    auth \n    public \n    returns (uint) \n    {\n        address prev = Owned(_userContract).contractOwner();\n        if (OK != _userContract.recoverUser(_newAddress)) {\n            revert();\n        }\n\n        emit UserRecovered(prev, _newAddress, _userContract);\n        return OK;\n    }\n\n}\n",
+  "sourcePath": "solidity-user-lib/contracts/Recovery.sol",
+  "ast": {
+    "absolutePath": "solidity-user-lib/contracts/Recovery.sol",
+    "exportedSymbols": {
+      "Recovery": [
+        12753
+      ]
+    },
+    "id": 12754,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 12688,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "92:24:24"
+      },
+      {
+        "absolutePath": "solidity-shared-lib/contracts/Owned.sol",
+        "file": "solidity-shared-lib/contracts/Owned.sol",
+        "id": 12689,
+        "nodeType": "ImportDirective",
+        "scope": 12754,
+        "sourceUnit": 3987,
+        "src": "119:49:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "solidity-roles-lib/contracts/Roles2LibraryAdapter.sol",
+        "file": "solidity-roles-lib/contracts/Roles2LibraryAdapter.sol",
+        "id": 12690,
+        "nodeType": "ImportDirective",
+        "scope": 12754,
+        "sourceUnit": 3723,
+        "src": "169:63:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "solidity-user-lib/contracts/UserInterface.sol",
+        "file": "./UserInterface.sol",
+        "id": 12691,
+        "nodeType": "ImportDirective",
+        "scope": 12754,
+        "sourceUnit": 13768,
+        "src": "233:29:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 12692,
+              "name": "Roles2LibraryAdapter",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3722,
+              "src": "286:20:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Roles2LibraryAdapter_$3722",
+                "typeString": "contract Roles2LibraryAdapter"
+              }
+            },
+            "id": 12693,
+            "nodeType": "InheritanceSpecifier",
+            "src": "286:20:24"
+          }
+        ],
+        "contractDependencies": [
+          3722
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 12753,
+        "linearizedBaseContracts": [
+          12753,
+          3722
+        ],
+        "name": "Recovery",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 12696,
+            "name": "RECOVERY_SCOPE",
+            "nodeType": "VariableDeclaration",
+            "scope": 12753,
+            "src": "314:36:24",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 12694,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "314:4:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3139303030",
+              "id": 12695,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "345:5:24",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_19000_by_1",
+                "typeString": "int_const 19000"
+              },
+              "value": "19000"
+            },
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 12704,
+            "name": "UserRecovered",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 12703,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12698,
+                  "indexed": false,
+                  "name": "prevUser",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12704,
+                  "src": "377:16:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12697,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "377:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 12700,
+                  "indexed": false,
+                  "name": "newUser",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12704,
+                  "src": "395:15:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12699,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "395:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 12702,
+                  "indexed": false,
+                  "name": "userContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12704,
+                  "src": "412:26:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_UserInterface_$13767",
+                    "typeString": "contract UserInterface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 12701,
+                    "name": "UserInterface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 13767,
+                    "src": "412:13:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UserInterface_$13767",
+                      "typeString": "contract UserInterface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "376:63:24"
+            },
+            "src": "357:83:24"
+          },
+          {
+            "body": {
+              "id": 12712,
+              "nodeType": "Block",
+              "src": "532:2:24",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 12713,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 12709,
+                    "name": "_roles2Library",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 12706,
+                    "src": "509:14:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 12710,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 12708,
+                  "name": "Roles2LibraryAdapter",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3722,
+                  "src": "488:20:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_Roles2LibraryAdapter_$3722_$",
+                    "typeString": "type(contract Roles2LibraryAdapter)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "488:36:24"
+              }
+            ],
+            "name": "Recovery",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 12707,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12706,
+                  "name": "_roles2Library",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12713,
+                  "src": "464:22:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12705,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "464:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "463:24:24"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 12711,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "532:0:24"
+            },
+            "scope": 12753,
+            "src": "446:88:24",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 12751,
+              "nodeType": "Block",
+              "src": "658:242:24",
+              "statements": [
+                {
+                  "assignments": [
+                    12725
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 12725,
+                      "name": "prev",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 12752,
+                      "src": "668:12:24",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 12724,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "668:7:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 12731,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 12727,
+                            "name": "_userContract",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 12715,
+                            "src": "689:13:24",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_UserInterface_$13767",
+                              "typeString": "contract UserInterface"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_UserInterface_$13767",
+                              "typeString": "contract UserInterface"
+                            }
+                          ],
+                          "id": 12726,
+                          "name": "Owned",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3986,
+                          "src": "683:5:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_Owned_$3986_$",
+                            "typeString": "type(contract Owned)"
+                          }
+                        },
+                        "id": 12728,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "683:20:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Owned_$3986",
+                          "typeString": "contract Owned"
+                        }
+                      },
+                      "id": 12729,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "contractOwner",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3809,
+                      "src": "683:34:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                        "typeString": "function () view external returns (address)"
+                      }
+                    },
+                    "id": 12730,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "683:36:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "668:51:24"
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 12737,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 12732,
+                      "name": "OK",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3620,
+                      "src": "733:2:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "!=",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 12735,
+                          "name": "_newAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 12717,
+                          "src": "765:11:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 12733,
+                          "name": "_userContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 12715,
+                          "src": "739:13:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_UserInterface_$13767",
+                            "typeString": "contract UserInterface"
+                          }
+                        },
+                        "id": 12734,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "recoverUser",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 13753,
+                        "src": "739:25:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$_t_uint256_$",
+                          "typeString": "function (address) external returns (uint256)"
+                        }
+                      },
+                      "id": 12736,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "739:38:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "733:44:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 12742,
+                  "nodeType": "IfStatement",
+                  "src": "729:83:24",
+                  "trueBody": {
+                    "id": 12741,
+                    "nodeType": "Block",
+                    "src": "779:33:24",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "id": 12738,
+                            "name": "revert",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 14314,
+                            "src": "793:6:24",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_revert_pure$__$returns$__$",
+                              "typeString": "function () pure"
+                            }
+                          },
+                          "id": 12739,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "793:8:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 12740,
+                        "nodeType": "ExpressionStatement",
+                        "src": "793:8:24"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 12744,
+                        "name": "prev",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12725,
+                        "src": "841:4:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 12745,
+                        "name": "_newAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12717,
+                        "src": "847:11:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 12746,
+                        "name": "_userContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12715,
+                        "src": "860:13:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_UserInterface_$13767",
+                          "typeString": "contract UserInterface"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_contract$_UserInterface_$13767",
+                          "typeString": "contract UserInterface"
+                        }
+                      ],
+                      "id": 12743,
+                      "name": "UserRecovered",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12704,
+                      "src": "827:13:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_contract$_UserInterface_$13767_$returns$__$",
+                        "typeString": "function (address,address,contract UserInterface)"
+                      }
+                    },
+                    "id": 12747,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "827:47:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 12748,
+                  "nodeType": "EmitStatement",
+                  "src": "822:52:24"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12749,
+                    "name": "OK",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3620,
+                    "src": "891:2:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 12723,
+                  "id": 12750,
+                  "nodeType": "Return",
+                  "src": "884:9:24"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 12752,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 12720,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 12719,
+                  "name": "auth",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3652,
+                  "src": "616:4:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "616:4:24"
+              }
+            ],
+            "name": "recoverUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 12718,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12715,
+                  "name": "_userContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12752,
+                  "src": "561:27:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_UserInterface_$13767",
+                    "typeString": "contract UserInterface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 12714,
+                    "name": "UserInterface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 13767,
+                    "src": "561:13:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UserInterface_$13767",
+                      "typeString": "contract UserInterface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 12717,
+                  "name": "_newAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12752,
+                  "src": "590:19:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12716,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "590:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "560:50:24"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 12723,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12722,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12752,
+                  "src": "647:4:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 12721,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "647:4:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "646:6:24"
+            },
+            "scope": 12753,
+            "src": "540:360:24",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 12754,
+        "src": "265:638:24"
+      }
+    ],
+    "src": "92:812:24"
+  },
+  "legacyAST": {
+    "absolutePath": "solidity-user-lib/contracts/Recovery.sol",
+    "exportedSymbols": {
+      "Recovery": [
+        12753
+      ]
+    },
+    "id": 12754,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 12688,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".21"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "92:24:24"
+      },
+      {
+        "absolutePath": "solidity-shared-lib/contracts/Owned.sol",
+        "file": "solidity-shared-lib/contracts/Owned.sol",
+        "id": 12689,
+        "nodeType": "ImportDirective",
+        "scope": 12754,
+        "sourceUnit": 3987,
+        "src": "119:49:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "solidity-roles-lib/contracts/Roles2LibraryAdapter.sol",
+        "file": "solidity-roles-lib/contracts/Roles2LibraryAdapter.sol",
+        "id": 12690,
+        "nodeType": "ImportDirective",
+        "scope": 12754,
+        "sourceUnit": 3723,
+        "src": "169:63:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "solidity-user-lib/contracts/UserInterface.sol",
+        "file": "./UserInterface.sol",
+        "id": 12691,
+        "nodeType": "ImportDirective",
+        "scope": 12754,
+        "sourceUnit": 13768,
+        "src": "233:29:24",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": [],
+            "baseName": {
+              "contractScope": null,
+              "id": 12692,
+              "name": "Roles2LibraryAdapter",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 3722,
+              "src": "286:20:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Roles2LibraryAdapter_$3722",
+                "typeString": "contract Roles2LibraryAdapter"
+              }
+            },
+            "id": 12693,
+            "nodeType": "InheritanceSpecifier",
+            "src": "286:20:24"
+          }
+        ],
+        "contractDependencies": [
+          3722
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 12753,
+        "linearizedBaseContracts": [
+          12753,
+          3722
+        ],
+        "name": "Recovery",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "id": 12696,
+            "name": "RECOVERY_SCOPE",
+            "nodeType": "VariableDeclaration",
+            "scope": 12753,
+            "src": "314:36:24",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 12694,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "314:4:24",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3139303030",
+              "id": 12695,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "345:5:24",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_19000_by_1",
+                "typeString": "int_const 19000"
+              },
+              "value": "19000"
+            },
+            "visibility": "internal"
+          },
+          {
+            "anonymous": false,
+            "documentation": null,
+            "id": 12704,
+            "name": "UserRecovered",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 12703,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12698,
+                  "indexed": false,
+                  "name": "prevUser",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12704,
+                  "src": "377:16:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12697,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "377:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 12700,
+                  "indexed": false,
+                  "name": "newUser",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12704,
+                  "src": "395:15:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12699,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "395:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 12702,
+                  "indexed": false,
+                  "name": "userContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12704,
+                  "src": "412:26:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_UserInterface_$13767",
+                    "typeString": "contract UserInterface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 12701,
+                    "name": "UserInterface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 13767,
+                    "src": "412:13:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UserInterface_$13767",
+                      "typeString": "contract UserInterface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "376:63:24"
+            },
+            "src": "357:83:24"
+          },
+          {
+            "body": {
+              "id": 12712,
+              "nodeType": "Block",
+              "src": "532:2:24",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 12713,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [
+                  {
+                    "argumentTypes": null,
+                    "id": 12709,
+                    "name": "_roles2Library",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 12706,
+                    "src": "509:14:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  }
+                ],
+                "id": 12710,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 12708,
+                  "name": "Roles2LibraryAdapter",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3722,
+                  "src": "488:20:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_type$_t_contract$_Roles2LibraryAdapter_$3722_$",
+                    "typeString": "type(contract Roles2LibraryAdapter)"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "488:36:24"
+              }
+            ],
+            "name": "Recovery",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 12707,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12706,
+                  "name": "_roles2Library",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12713,
+                  "src": "464:22:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12705,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "464:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "463:24:24"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 12711,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "532:0:24"
+            },
+            "scope": 12753,
+            "src": "446:88:24",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 12751,
+              "nodeType": "Block",
+              "src": "658:242:24",
+              "statements": [
+                {
+                  "assignments": [
+                    12725
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 12725,
+                      "name": "prev",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 12752,
+                      "src": "668:12:24",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      },
+                      "typeName": {
+                        "id": 12724,
+                        "name": "address",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "668:7:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 12731,
+                  "initialValue": {
+                    "argumentTypes": null,
+                    "arguments": [],
+                    "expression": {
+                      "argumentTypes": [],
+                      "expression": {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 12727,
+                            "name": "_userContract",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 12715,
+                            "src": "689:13:24",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_UserInterface_$13767",
+                              "typeString": "contract UserInterface"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_UserInterface_$13767",
+                              "typeString": "contract UserInterface"
+                            }
+                          ],
+                          "id": 12726,
+                          "name": "Owned",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3986,
+                          "src": "683:5:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_Owned_$3986_$",
+                            "typeString": "type(contract Owned)"
+                          }
+                        },
+                        "id": 12728,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "683:20:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_Owned_$3986",
+                          "typeString": "contract Owned"
+                        }
+                      },
+                      "id": 12729,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "contractOwner",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 3809,
+                      "src": "683:34:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$__$returns$_t_address_$",
+                        "typeString": "function () view external returns (address)"
+                      }
+                    },
+                    "id": 12730,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "683:36:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "668:51:24"
+                },
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 12737,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "id": 12732,
+                      "name": "OK",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 3620,
+                      "src": "733:2:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "!=",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 12735,
+                          "name": "_newAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 12717,
+                          "src": "765:11:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 12733,
+                          "name": "_userContract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 12715,
+                          "src": "739:13:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_UserInterface_$13767",
+                            "typeString": "contract UserInterface"
+                          }
+                        },
+                        "id": 12734,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "recoverUser",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 13753,
+                        "src": "739:25:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$_t_uint256_$",
+                          "typeString": "function (address) external returns (uint256)"
+                        }
+                      },
+                      "id": 12736,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "739:38:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "733:44:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": null,
+                  "id": 12742,
+                  "nodeType": "IfStatement",
+                  "src": "729:83:24",
+                  "trueBody": {
+                    "id": 12741,
+                    "nodeType": "Block",
+                    "src": "779:33:24",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "arguments": [],
+                          "expression": {
+                            "argumentTypes": [],
+                            "id": 12738,
+                            "name": "revert",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 14314,
+                            "src": "793:6:24",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_revert_pure$__$returns$__$",
+                              "typeString": "function () pure"
+                            }
+                          },
+                          "id": 12739,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "793:8:24",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 12740,
+                        "nodeType": "ExpressionStatement",
+                        "src": "793:8:24"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "eventCall": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 12744,
+                        "name": "prev",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12725,
+                        "src": "841:4:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 12745,
+                        "name": "_newAddress",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12717,
+                        "src": "847:11:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "id": 12746,
+                        "name": "_userContract",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 12715,
+                        "src": "860:13:24",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_UserInterface_$13767",
+                          "typeString": "contract UserInterface"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_contract$_UserInterface_$13767",
+                          "typeString": "contract UserInterface"
+                        }
+                      ],
+                      "id": 12743,
+                      "name": "UserRecovered",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 12704,
+                      "src": "827:13:24",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$_t_contract$_UserInterface_$13767_$returns$__$",
+                        "typeString": "function (address,address,contract UserInterface)"
+                      }
+                    },
+                    "id": 12747,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "827:47:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 12748,
+                  "nodeType": "EmitStatement",
+                  "src": "822:52:24"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 12749,
+                    "name": "OK",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 3620,
+                    "src": "891:2:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 12723,
+                  "id": 12750,
+                  "nodeType": "Return",
+                  "src": "884:9:24"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 12752,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": false,
+            "modifiers": [
+              {
+                "arguments": [],
+                "id": 12720,
+                "modifierName": {
+                  "argumentTypes": null,
+                  "id": 12719,
+                  "name": "auth",
+                  "nodeType": "Identifier",
+                  "overloadedDeclarations": [],
+                  "referencedDeclaration": 3652,
+                  "src": "616:4:24",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_modifier$__$",
+                    "typeString": "modifier ()"
+                  }
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "616:4:24"
+              }
+            ],
+            "name": "recoverUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 12718,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12715,
+                  "name": "_userContract",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12752,
+                  "src": "561:27:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_UserInterface_$13767",
+                    "typeString": "contract UserInterface"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 12714,
+                    "name": "UserInterface",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 13767,
+                    "src": "561:13:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_UserInterface_$13767",
+                      "typeString": "contract UserInterface"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 12717,
+                  "name": "_newAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12752,
+                  "src": "590:19:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 12716,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "590:7:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "560:50:24"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 12723,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 12722,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 12752,
+                  "src": "647:4:24",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 12721,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "647:4:24",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "646:6:24"
+            },
+            "scope": 12753,
+            "src": "540:360:24",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 12754,
+        "src": "265:638:24"
+      }
+    ],
+    "src": "92:812:24"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.21+commit.dfe3193c.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-07-12T13:24:25.557Z"
+}
