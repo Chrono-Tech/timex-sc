@@ -4,9 +4,9 @@
 
 "@laborx/exchange.core@git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#develop":
   version "1.0.0"
-  resolved "git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#3ad98a564e83b7ee44f4ed2c832ebbe664559012"
+  resolved "git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#a42a9069caab1ede4101260b3d4aa32feba5a0ee"
   dependencies:
-    bignumber.js "^6.0.0"
+    bignumber.js "^7.2.1"
     bip39 "^2.5.0"
     bn.js "^4.11.8"
     debug "^3.1.0"
@@ -312,7 +312,7 @@ async-eventemitter@^0.2.2:
   dependencies:
     async "^2.4.0"
 
-async-eventemitter@ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c:
+"async-eventemitter@github:ahultgren/async-eventemitter#fa06e39e56786ba541c180061dbf2c0a5bbf951c":
   version "0.2.3"
   resolved "https://codeload.github.com/ahultgren/async-eventemitter/tar.gz/fa06e39e56786ba541c180061dbf2c0a5bbf951c"
   dependencies:
@@ -1041,9 +1041,9 @@ big.js@^3.1.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
 
-bignumber.js@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-6.0.0.tgz#bbfa047644609a5af093e9cbd83b0461fa3f6002"
+bignumber.js@^7.2.1:
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/bignumber.js/-/bignumber.js-7.2.1.tgz#80c048759d826800807c4bfd521e50edbba57a5f"
 
 "bignumber.js@git+https://github.com/debris/bignumber.js.git#94d7146671b9719e00a09c29b01a691bc85048c2":
   version "2.0.7"
@@ -2284,8 +2284,8 @@ eslint-plugin-standard@^3.0.1:
   resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-3.1.0.tgz#2a9e21259ba4c47c02d53b2d0c9135d4b1022d47"
 
 eslint-scope@^3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-3.7.1.tgz#3d63c3edfda02e06e01a452ad88caacc7cdcb6e8"
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-3.7.3.tgz#bb507200d3d17f60247636160b4826284b108535"
   dependencies:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
@@ -2349,8 +2349,8 @@ esprima@2.7.x, esprima@^2.7.1:
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-2.7.3.tgz#96e3b70d5779f6ad49cd032673d1c312767ba581"
 
 esprima@^4.0.0, esprima@~4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.0.tgz#4499eddcd1110e0b218bacf2fa7f7f59f55ca804"
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
 
 esquery@^1.0.0:
   version "1.0.1"
@@ -3046,8 +3046,8 @@ gauge@~2.7.3:
     wide-align "^1.1.0"
 
 get-caller-file@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.2.tgz#f702e63127e7e231c160a80c1554acb70d5047e5"
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
 
 get-stream@3.0.0, get-stream@^3.0.0:
   version "3.0.0"
@@ -3859,8 +3859,8 @@ isbinaryfile@^3.0.2:
   resolved "https://registry.yarnpkg.com/isbinaryfile/-/isbinaryfile-3.0.2.tgz#4a3e974ec0cba9004d3fc6cde7209ea69368a621"
 
 isemail@3.x.x:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/isemail/-/isemail-3.1.2.tgz#937cf919002077999a73ea8b1951d590e84e01dd"
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/isemail/-/isemail-3.1.3.tgz#64f37fc113579ea12523165c3ebe3a71a56ce571"
   dependencies:
     punycode "2.x.x"
 
@@ -4582,8 +4582,8 @@ mimic-fn@^1.0.0:
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
 
 mimic-response@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-1.0.0.tgz#df3d3652a73fded6b9b0b24146e6fd052353458e"
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
 
 min-document@^2.19.0:
   version "2.19.0"
@@ -5834,8 +5834,8 @@ rxjs@^5.5.2:
     symbol-observable "1.0.1"
 
 rxjs@^6.1.0:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.2.1.tgz#246cebec189a6cbc143a3ef9f62d6f4c91813ca1"
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.2.2.tgz#eb75fa3c186ff5289907d06483a77884586e1cf9"
   dependencies:
     tslib "^1.9.0"
 
@@ -6154,7 +6154,7 @@ solidity-coverage@^0.5.4:
 
 solidity-eventshistory-lib@alesanro/solidity-eventshistory-lib#solc-downgrade-v0.4.21:
   version "0.1.0"
-  resolved "https://codeload.github.com/alesanro/solidity-eventshistory-lib/tar.gz/a732defd24d0a7ea0f4b842ecd07b56f7ce53603"
+  resolved "https://codeload.github.com/alesanro/solidity-eventshistory-lib/tar.gz/3f87e1b7cf087b8ce90f1293937787ef35f2c174"
   dependencies:
     solidity-shared-lib alesanro/solidity-shared-lib.git#solc-downgrade-v0.4.21
 
@@ -6170,58 +6170,31 @@ solidity-roles-lib@alesanro/solidity-roles-lib#solc-downgrade-v0.4.21:
   version "0.0.1"
   resolved "https://codeload.github.com/alesanro/solidity-roles-lib/tar.gz/c23a5bfa1812a757e095967bb56db324abcfb6a4"
   dependencies:
-    solidity-shared-lib ChronoBank/solidity-shared-lib.git
-    solidity-storage-lib ChronoBank/solidity-storage-lib.git#v0.1.2
-
-solidity-roles-lib@chronobank/solidity-roles-lib#v0.0.1:
-  version "0.0.1"
-  resolved "https://codeload.github.com/chronobank/solidity-roles-lib/tar.gz/2f6fc0d488aab3281dbf69f832637fc9907fbd47"
-  dependencies:
-    solidity-shared-lib ChronoBank/solidity-shared-lib.git
-    solidity-storage-lib ChronoBank/solidity-storage-lib.git#v0.1.2
-
-solidity-shared-lib@ChronoBank/solidity-shared-lib.git:
-  version "0.2.1"
-  resolved "https://codeload.github.com/ChronoBank/solidity-shared-lib/tar.gz/649af3d5a30ee9be3d0a49e1a3fb4687219d4b06"
-
-solidity-shared-lib@alesanro/solidity-shared-lib#feature/update-to-latest:
-  version "0.2.0"
-  resolved "https://codeload.github.com/alesanro/solidity-shared-lib/tar.gz/47206b7ae25aa5726895ec2a4199c5879f6d92fe"
+    solidity-eventshistory-lib alesanro/solidity-eventshistory-lib#solc-downgrade-v0.4.21
+    solidity-shared-lib alesanro/solidity-shared-lib.git#solc-downgrade-v0.4.21
+    solidity-storage-lib alesanro/solidity-storage-lib.git#solc-downgrade-v0.4.21
 
 solidity-shared-lib@alesanro/solidity-shared-lib#solc-downgrade-v0.4.21, solidity-shared-lib@alesanro/solidity-shared-lib.git#solc-downgrade-v0.4.21:
   version "0.2.1"
+  uid "052146fee9499c08ce1345f81dc6b575f96cc66a"
   resolved "https://codeload.github.com/alesanro/solidity-shared-lib/tar.gz/052146fee9499c08ce1345f81dc6b575f96cc66a"
 
-solidity-shared-lib@chronobank/solidity-shared-lib#v0.2.1:
-  version "0.2.1"
-  resolved "https://codeload.github.com/chronobank/solidity-shared-lib/tar.gz/649af3d5a30ee9be3d0a49e1a3fb4687219d4b06"
-
-solidity-storage-lib@ChronoBank/solidity-storage-lib.git#v0.1.2:
+solidity-storage-lib@alesanro/solidity-storage-lib#solc-downgrade-v0.4.21, solidity-storage-lib@alesanro/solidity-storage-lib.git#solc-downgrade-v0.4.21:
   version "0.1.2"
-  resolved "https://codeload.github.com/ChronoBank/solidity-storage-lib/tar.gz/051fe93d11ceb7e0d511bfdd36be21b480278cb4"
-  dependencies:
-    solidity-shared-lib alesanro/solidity-shared-lib#feature/update-to-latest
-
-solidity-storage-lib@alesanro/solidity-storage-lib#solc-downgrade-v0.4.21:
-  version "0.1.2"
+  uid fd01673aa6a732f6d3767c83528aa6a56e62967f
   resolved "https://codeload.github.com/alesanro/solidity-storage-lib/tar.gz/fd01673aa6a732f6d3767c83528aa6a56e62967f"
   dependencies:
     solidity-eventshistory-lib alesanro/solidity-eventshistory-lib#solc-downgrade-v0.4.21
     solidity-shared-lib alesanro/solidity-shared-lib#solc-downgrade-v0.4.21
 
-solidity-storage-lib@chronobank/solidity-storage-lib#v0.1.2:
-  version "0.1.2"
-  resolved "https://codeload.github.com/chronobank/solidity-storage-lib/tar.gz/051fe93d11ceb7e0d511bfdd36be21b480278cb4"
-  dependencies:
-    solidity-shared-lib alesanro/solidity-shared-lib#feature/update-to-latest
-
 solidity-user-lib@alesanro/solidity-user-lib#solc-downgrade-v0.4.21:
   version "0.0.1"
-  resolved "https://codeload.github.com/alesanro/solidity-user-lib/tar.gz/be8c8f80f61145a175244a166c6f56e1974f7865"
+  resolved "https://codeload.github.com/alesanro/solidity-user-lib/tar.gz/abb3574ea1394483ab54a892628b96f4d1663fc2"
   dependencies:
-    solidity-roles-lib chronobank/solidity-roles-lib#v0.0.1
-    solidity-shared-lib chronobank/solidity-shared-lib#v0.2.1
-    solidity-storage-lib chronobank/solidity-storage-lib#v0.1.2
+    solidity-eventshistory-lib alesanro/solidity-eventshistory-lib#solc-downgrade-v0.4.21
+    solidity-roles-lib alesanro/solidity-roles-lib#solc-downgrade-v0.4.21
+    solidity-shared-lib alesanro/solidity-shared-lib#solc-downgrade-v0.4.21
+    solidity-storage-lib alesanro/solidity-storage-lib#solc-downgrade-v0.4.21
 
 solium-plugin-security@0.1.1:
   version "0.1.1"
@@ -6899,10 +6872,8 @@ url@^0.11.0:
     querystring "0.2.0"
 
 use@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/use/-/use-3.1.0.tgz#14716bf03fdfefd03040aef58d8b4b85f3a7c544"
-  dependencies:
-    kind-of "^6.0.2"
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
 
 utf8@2.1.1:
   version "2.1.1"
@@ -7423,8 +7394,8 @@ ws@^3.0.0:
     ultron "~1.1.0"
 
 ws@^5.1.1:
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-5.2.1.tgz#37827a0ba772d072a843c3615b0ad38bcdb354eb"
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-5.2.2.tgz#dffef14866b8e8dc9133582514d1befaf96e980f"
   dependencies:
     async-limiter "~1.0.0"
 
