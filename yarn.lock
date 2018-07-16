@@ -6173,6 +6173,13 @@ solidity-roles-lib@alesanro/solidity-roles-lib#solc-downgrade-v0.4.21:
     solidity-shared-lib ChronoBank/solidity-shared-lib.git
     solidity-storage-lib ChronoBank/solidity-storage-lib.git#v0.1.2
 
+solidity-roles-lib@chronobank/solidity-roles-lib#v0.0.1:
+  version "0.0.1"
+  resolved "https://codeload.github.com/chronobank/solidity-roles-lib/tar.gz/2f6fc0d488aab3281dbf69f832637fc9907fbd47"
+  dependencies:
+    solidity-shared-lib ChronoBank/solidity-shared-lib.git
+    solidity-storage-lib ChronoBank/solidity-storage-lib.git#v0.1.2
+
 solidity-shared-lib@ChronoBank/solidity-shared-lib.git:
   version "0.2.1"
   resolved "https://codeload.github.com/ChronoBank/solidity-shared-lib/tar.gz/649af3d5a30ee9be3d0a49e1a3fb4687219d4b06"
@@ -6184,6 +6191,10 @@ solidity-shared-lib@alesanro/solidity-shared-lib#feature/update-to-latest:
 solidity-shared-lib@alesanro/solidity-shared-lib#solc-downgrade-v0.4.21, solidity-shared-lib@alesanro/solidity-shared-lib.git#solc-downgrade-v0.4.21:
   version "0.2.1"
   resolved "https://codeload.github.com/alesanro/solidity-shared-lib/tar.gz/052146fee9499c08ce1345f81dc6b575f96cc66a"
+
+solidity-shared-lib@chronobank/solidity-shared-lib#v0.2.1:
+  version "0.2.1"
+  resolved "https://codeload.github.com/chronobank/solidity-shared-lib/tar.gz/649af3d5a30ee9be3d0a49e1a3fb4687219d4b06"
 
 solidity-storage-lib@ChronoBank/solidity-storage-lib.git#v0.1.2:
   version "0.1.2"
@@ -6198,14 +6209,19 @@ solidity-storage-lib@alesanro/solidity-storage-lib#solc-downgrade-v0.4.21:
     solidity-eventshistory-lib alesanro/solidity-eventshistory-lib#solc-downgrade-v0.4.21
     solidity-shared-lib alesanro/solidity-shared-lib#solc-downgrade-v0.4.21
 
+solidity-storage-lib@chronobank/solidity-storage-lib#v0.1.2:
+  version "0.1.2"
+  resolved "https://codeload.github.com/chronobank/solidity-storage-lib/tar.gz/051fe93d11ceb7e0d511bfdd36be21b480278cb4"
+  dependencies:
+    solidity-shared-lib alesanro/solidity-shared-lib#feature/update-to-latest
+
 solidity-user-lib@alesanro/solidity-user-lib#solc-downgrade-v0.4.21:
   version "0.0.1"
   resolved "https://codeload.github.com/alesanro/solidity-user-lib/tar.gz/be8c8f80f61145a175244a166c6f56e1974f7865"
   dependencies:
-    solidity-eventshistory-lib alesanro/solidity-eventshistory-lib#solc-downgrade-v0.4.21
-    solidity-roles-lib alesanro/solidity-roles-lib#solc-downgrade-v0.4.21
-    solidity-shared-lib alesanro/solidity-shared-lib#solc-downgrade-v0.4.21
-    solidity-storage-lib alesanro/solidity-storage-lib#solc-downgrade-v0.4.21
+    solidity-roles-lib chronobank/solidity-roles-lib#v0.0.1
+    solidity-shared-lib chronobank/solidity-shared-lib#v0.2.1
+    solidity-storage-lib chronobank/solidity-storage-lib#v0.1.2
 
 solium-plugin-security@0.1.1:
   version "0.1.1"

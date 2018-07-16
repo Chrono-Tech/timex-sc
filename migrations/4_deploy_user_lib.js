@@ -45,17 +45,15 @@ module.exports = async (deployer, network, accounts) => {
     console.log(`[UserBackendProvider] address is: ${userBackendProvider.address}`)
 
     const userFactory = await UserFactory.new(roles2Library.address)
+    await userFactory.setUserRecoveryAddress(recovery.address)
     await userFactory.setUserBackendProvider(userBackendProvider.address)
     await userFactory.setOracleAddress(ORACLE_ADDRESS)
     console.log(`[UserFactory] address is: ${userFactory.address}`)
 
     // NOTE: HERE!!!! RIGHTS SHOULD BE GRANTED TO UserFactory TO ACCESS UserRegistry CONTRACT MODIFICATION
     await roles2Library.addUserRole(userFactory.address, Roles.USER_REGISTRY_ROLE)
-    console.log('1')
     const sig = userRegistry.contract.addUserContract.getData(0x0).slice(0, 10)
-    console.log('2', sig)
     await roles2Library.addRoleCapability(Roles.USER_REGISTRY_ROLE, userRegistry.address, sig)
-    console.log('3')
 
     await saveDeployedAddresses({
       Storage: storage.address,

@@ -40,14 +40,14 @@
     "absolutePath": "solidity-user-lib/contracts/UserBackendProviderInterface.sol",
     "exportedSymbols": {
       "UserBackendProviderInterface": [
-        13410
+        13419
       ]
     },
-    "id": 13411,
+    "id": 13420,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13399,
+        "id": 13408,
         "literals": [
           "solidity",
           "^",
@@ -63,9 +63,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 13410,
+        "id": 13419,
         "linearizedBaseContracts": [
-          13410
+          13419
         ],
         "name": "UserBackendProviderInterface",
         "nodeType": "ContractDefinition",
@@ -73,7 +73,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 13404,
+            "id": 13413,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -81,22 +81,22 @@
             "name": "getUserBackend",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13400,
+              "id": 13409,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "181:2:28"
             },
             "payable": false,
             "returnParameters": {
-              "id": 13403,
+              "id": 13412,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13402,
+                  "id": 13411,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13404,
+                  "scope": 13413,
                   "src": "207:7:28",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -105,7 +105,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13401,
+                    "id": 13410,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "207:7:28",
@@ -120,7 +120,7 @@
               ],
               "src": "206:9:28"
             },
-            "scope": 13410,
+            "scope": 13419,
             "src": "158:58:28",
             "stateMutability": "view",
             "superFunction": null,
@@ -129,7 +129,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 13409,
+            "id": 13418,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -137,22 +137,22 @@
             "name": "getUserRegistry",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13405,
+              "id": 13414,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "242:2:28"
             },
             "payable": false,
             "returnParameters": {
-              "id": 13408,
+              "id": 13417,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13407,
+                  "id": 13416,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13409,
+                  "scope": 13418,
                   "src": "268:7:28",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -161,7 +161,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13406,
+                    "id": 13415,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "268:7:28",
@@ -176,14 +176,14 @@
               ],
               "src": "267:9:28"
             },
-            "scope": 13410,
+            "scope": 13419,
             "src": "218:59:28",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 13411,
+        "scope": 13420,
         "src": "116:163:28"
       }
     ],
@@ -193,14 +193,14 @@
     "absolutePath": "solidity-user-lib/contracts/UserBackendProviderInterface.sol",
     "exportedSymbols": {
       "UserBackendProviderInterface": [
-        13410
+        13419
       ]
     },
-    "id": 13411,
+    "id": 13420,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13399,
+        "id": 13408,
         "literals": [
           "solidity",
           "^",
@@ -216,9 +216,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 13410,
+        "id": 13419,
         "linearizedBaseContracts": [
-          13410
+          13419
         ],
         "name": "UserBackendProviderInterface",
         "nodeType": "ContractDefinition",
@@ -226,7 +226,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 13404,
+            "id": 13413,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -234,22 +234,22 @@
             "name": "getUserBackend",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13400,
+              "id": 13409,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "181:2:28"
             },
             "payable": false,
             "returnParameters": {
-              "id": 13403,
+              "id": 13412,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13402,
+                  "id": 13411,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13404,
+                  "scope": 13413,
                   "src": "207:7:28",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -258,7 +258,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13401,
+                    "id": 13410,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "207:7:28",
@@ -273,7 +273,7 @@
               ],
               "src": "206:9:28"
             },
-            "scope": 13410,
+            "scope": 13419,
             "src": "158:58:28",
             "stateMutability": "view",
             "superFunction": null,
@@ -282,7 +282,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 13409,
+            "id": 13418,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -290,22 +290,22 @@
             "name": "getUserRegistry",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 13405,
+              "id": 13414,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "242:2:28"
             },
             "payable": false,
             "returnParameters": {
-              "id": 13408,
+              "id": 13417,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13407,
+                  "id": 13416,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 13409,
+                  "scope": 13418,
                   "src": "268:7:28",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -314,7 +314,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13406,
+                    "id": 13415,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "268:7:28",
@@ -329,14 +329,14 @@
               ],
               "src": "267:9:28"
             },
-            "scope": 13410,
+            "scope": 13419,
             "src": "218:59:28",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 13411,
+        "scope": 13420,
         "src": "116:163:28"
       }
     ],
@@ -348,5 +348,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-12T13:16:24.736Z"
+  "updatedAt": "2018-07-16T12:15:18.865Z"
 }
