@@ -17,14 +17,14 @@
     "absolutePath": "solidity-user-lib/contracts/BaseByzantiumRouter.sol",
     "exportedSymbols": {
       "BaseByzantiumRouter": [
-        11673
+        11863
       ]
     },
-    "id": 11674,
+    "id": 11864,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 11657,
+        "id": 11847,
         "literals": [
           "solidity",
           "^",
@@ -32,7 +32,7 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "92:24:22"
+        "src": "92:24:23"
       },
       {
         "baseContracts": [],
@@ -40,31 +40,31 @@
         "contractKind": "contract",
         "documentation": "@title Routing contract that is able to provide a way for delegating invocations with dynamic destination address.",
         "fullyImplemented": false,
-        "id": 11673,
+        "id": 11863,
         "linearizedBaseContracts": [
-          11673
+          11863
         ],
         "name": "BaseByzantiumRouter",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 11666,
+              "id": 11856,
               "nodeType": "Block",
-              "src": "317:765:22",
+              "src": "317:765:23",
               "statements": [
                 {
                   "assignments": [
-                    11661
+                    11851
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 11661,
+                      "id": 11851,
                       "name": "_implementation",
                       "nodeType": "VariableDeclaration",
-                      "scope": 11667,
-                      "src": "327:23:22",
+                      "scope": 11857,
+                      "src": "327:23:23",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -72,10 +72,10 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 11660,
+                        "id": 11850,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
-                        "src": "327:7:22",
+                        "src": "327:7:23",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -85,24 +85,24 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 11664,
+                  "id": 11854,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 11662,
+                      "id": 11852,
                       "name": "implementation",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11672,
-                      "src": "353:14:22",
+                      "referencedDeclaration": 11862,
+                      "src": "353:14:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
                         "typeString": "function () view returns (address)"
                       }
                     },
-                    "id": 11663,
+                    "id": 11853,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -110,36 +110,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "353:16:22",
+                    "src": "353:16:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "327:42:22"
+                  "src": "327:42:23"
                 },
                 {
                   "externalReferences": [
                     {
                       "_implementation": {
-                        "declaration": 11661,
+                        "declaration": 11851,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "626:15:22",
+                        "src": "626:15:23",
                         "valueSize": 1
                       }
                     }
                   ],
-                  "id": 11665,
+                  "id": 11855,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let calldataMemoryOffset := mload(0x40)\n    mstore(0x40, add(calldataMemoryOffset, calldatasize()))\n    calldatacopy(calldataMemoryOffset, 0x0, calldatasize())\n    let r := delegatecall(sub(gas(), 10000), _implementation, calldataMemoryOffset, calldatasize(), 0, 0)\n    let returndataMemoryOffset := mload(0x40)\n    mstore(0x40, add(returndataMemoryOffset, returndatasize()))\n    returndatacopy(returndataMemoryOffset, 0x0, returndatasize())\n    switch r\n    case 1 {\n        return(returndataMemoryOffset, returndatasize())\n    }\n    default {\n        revert(0, 0)\n    }\n}",
-                  "src": "380:702:22"
+                  "src": "380:702:23"
                 }
               ]
             },
             "documentation": null,
-            "id": 11667,
+            "id": 11857,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -147,20 +147,20 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11658,
+              "id": 11848,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "282:2:22"
+              "src": "282:2:23"
             },
             "payable": true,
             "returnParameters": {
-              "id": 11659,
+              "id": 11849,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "317:0:22"
+              "src": "317:0:23"
             },
-            "scope": 11673,
-            "src": "274:808:22",
+            "scope": 11863,
+            "src": "274:808:23",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
@@ -168,7 +168,7 @@
           {
             "body": null,
             "documentation": "@notice Returns destination address for future calls\n @dev abstract definition. should be implemented in sibling contracts\n @return destination address",
-            "id": 11672,
+            "id": 11862,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -176,23 +176,23 @@
             "name": "implementation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11668,
+              "id": 11858,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1285:2:22"
+              "src": "1285:2:23"
             },
             "payable": false,
             "returnParameters": {
-              "id": 11671,
+              "id": 11861,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11670,
+                  "id": 11860,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11672,
-                  "src": "1311:7:22",
+                  "scope": 11862,
+                  "src": "1311:7:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -200,10 +200,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11669,
+                    "id": 11859,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1311:7:22",
+                    "src": "1311:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -213,33 +213,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1310:9:22"
+              "src": "1310:9:23"
             },
-            "scope": 11673,
-            "src": "1262:58:22",
+            "scope": 11863,
+            "src": "1262:58:23",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 11674,
-        "src": "238:1084:22"
+        "scope": 11864,
+        "src": "238:1084:23"
       }
     ],
-    "src": "92:1231:22"
+    "src": "92:1231:23"
   },
   "legacyAST": {
     "absolutePath": "solidity-user-lib/contracts/BaseByzantiumRouter.sol",
     "exportedSymbols": {
       "BaseByzantiumRouter": [
-        11673
+        11863
       ]
     },
-    "id": 11674,
+    "id": 11864,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 11657,
+        "id": 11847,
         "literals": [
           "solidity",
           "^",
@@ -247,7 +247,7 @@
           ".11"
         ],
         "nodeType": "PragmaDirective",
-        "src": "92:24:22"
+        "src": "92:24:23"
       },
       {
         "baseContracts": [],
@@ -255,31 +255,31 @@
         "contractKind": "contract",
         "documentation": "@title Routing contract that is able to provide a way for delegating invocations with dynamic destination address.",
         "fullyImplemented": false,
-        "id": 11673,
+        "id": 11863,
         "linearizedBaseContracts": [
-          11673
+          11863
         ],
         "name": "BaseByzantiumRouter",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 11666,
+              "id": 11856,
               "nodeType": "Block",
-              "src": "317:765:22",
+              "src": "317:765:23",
               "statements": [
                 {
                   "assignments": [
-                    11661
+                    11851
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 11661,
+                      "id": 11851,
                       "name": "_implementation",
                       "nodeType": "VariableDeclaration",
-                      "scope": 11667,
-                      "src": "327:23:22",
+                      "scope": 11857,
+                      "src": "327:23:23",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -287,10 +287,10 @@
                         "typeString": "address"
                       },
                       "typeName": {
-                        "id": 11660,
+                        "id": 11850,
                         "name": "address",
                         "nodeType": "ElementaryTypeName",
-                        "src": "327:7:22",
+                        "src": "327:7:23",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -300,24 +300,24 @@
                       "visibility": "internal"
                     }
                   ],
-                  "id": 11664,
+                  "id": 11854,
                   "initialValue": {
                     "argumentTypes": null,
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 11662,
+                      "id": 11852,
                       "name": "implementation",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11672,
-                      "src": "353:14:22",
+                      "referencedDeclaration": 11862,
+                      "src": "353:14:23",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$__$returns$_t_address_$",
                         "typeString": "function () view returns (address)"
                       }
                     },
-                    "id": 11663,
+                    "id": 11853,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -325,36 +325,36 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "353:16:22",
+                    "src": "353:16:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "327:42:22"
+                  "src": "327:42:23"
                 },
                 {
                   "externalReferences": [
                     {
                       "_implementation": {
-                        "declaration": 11661,
+                        "declaration": 11851,
                         "isOffset": false,
                         "isSlot": false,
-                        "src": "626:15:22",
+                        "src": "626:15:23",
                         "valueSize": 1
                       }
                     }
                   ],
-                  "id": 11665,
+                  "id": 11855,
                   "nodeType": "InlineAssembly",
                   "operations": "{\n    let calldataMemoryOffset := mload(0x40)\n    mstore(0x40, add(calldataMemoryOffset, calldatasize()))\n    calldatacopy(calldataMemoryOffset, 0x0, calldatasize())\n    let r := delegatecall(sub(gas(), 10000), _implementation, calldataMemoryOffset, calldatasize(), 0, 0)\n    let returndataMemoryOffset := mload(0x40)\n    mstore(0x40, add(returndataMemoryOffset, returndatasize()))\n    returndatacopy(returndataMemoryOffset, 0x0, returndatasize())\n    switch r\n    case 1 {\n        return(returndataMemoryOffset, returndatasize())\n    }\n    default {\n        revert(0, 0)\n    }\n}",
-                  "src": "380:702:22"
+                  "src": "380:702:23"
                 }
               ]
             },
             "documentation": null,
-            "id": 11667,
+            "id": 11857,
             "implemented": true,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -362,20 +362,20 @@
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11658,
+              "id": 11848,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "282:2:22"
+              "src": "282:2:23"
             },
             "payable": true,
             "returnParameters": {
-              "id": 11659,
+              "id": 11849,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "317:0:22"
+              "src": "317:0:23"
             },
-            "scope": 11673,
-            "src": "274:808:22",
+            "scope": 11863,
+            "src": "274:808:23",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "external"
@@ -383,7 +383,7 @@
           {
             "body": null,
             "documentation": "@notice Returns destination address for future calls\n @dev abstract definition. should be implemented in sibling contracts\n @return destination address",
-            "id": 11672,
+            "id": 11862,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": true,
@@ -391,23 +391,23 @@
             "name": "implementation",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 11668,
+              "id": 11858,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1285:2:22"
+              "src": "1285:2:23"
             },
             "payable": false,
             "returnParameters": {
-              "id": 11671,
+              "id": 11861,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11670,
+                  "id": 11860,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 11672,
-                  "src": "1311:7:22",
+                  "scope": 11862,
+                  "src": "1311:7:23",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -415,10 +415,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11669,
+                    "id": 11859,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1311:7:22",
+                    "src": "1311:7:23",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -428,20 +428,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1310:9:22"
+              "src": "1310:9:23"
             },
-            "scope": 11673,
-            "src": "1262:58:22",
+            "scope": 11863,
+            "src": "1262:58:23",
             "stateMutability": "view",
             "superFunction": null,
             "visibility": "internal"
           }
         ],
-        "scope": 11674,
-        "src": "238:1084:22"
+        "scope": 11864,
+        "src": "238:1084:23"
       }
     ],
-    "src": "92:1231:22"
+    "src": "92:1231:23"
   },
   "compiler": {
     "name": "solc",
@@ -449,5 +449,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-16T12:15:18.858Z"
+  "updatedAt": "2018-07-19T09:10:23.251Z"
 }

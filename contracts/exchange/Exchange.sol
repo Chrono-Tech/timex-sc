@@ -21,6 +21,7 @@ pragma solidity 0.4.21;
 import { TokenTransferProxy } from "./TokenTransferProxy.sol";
 import { EIP20Interface as Token } from "../tokens/EIP20Interface.sol";
 import { SafeMath } from "../utils/SafeMath.sol";
+import "../tokens/RewardService.sol";
 
 
 /// @title Exchange - Facilitates exchange of ERC20 tokens.
@@ -40,6 +41,8 @@ contract Exchange is SafeMath {
 
     address public FEE_TOKEN_CONTRACT;
     address public TOKEN_TRANSFER_PROXY_CONTRACT;
+
+    address public REWARD_CONTRACT;
 
     // Mappings of orderHash => amounts of takerTokenAmount filled or cancelled.
     mapping (bytes32 => uint) public filled;
@@ -89,6 +92,10 @@ contract Exchange is SafeMath {
     function Exchange(address _feeToken, address _tokenTransferProxy) public {
         FEE_TOKEN_CONTRACT = _feeToken;
         TOKEN_TRANSFER_PROXY_CONTRACT = _tokenTransferProxy;
+    }
+
+    function setRewardContract (address _rewardContract) public {
+      REWARD_CONTRACT = _rewardContract;
     }
 
     /*
@@ -192,6 +199,7 @@ contract Exchange is SafeMath {
                     order.feeRecipient,
                     paidTakerFee
                 ));
+                require(depositReward(order.maker, paidTakerFee));
             }
         }
 
@@ -527,6 +535,10 @@ contract Exchange is SafeMath {
         returns (bool)
     {
         return TokenTransferProxy(TOKEN_TRANSFER_PROXY_CONTRACT).transferFrom(token, from, to, value);
+    }
+
+    function depositReward(address to, uint value) internal returns (bool) {
+      return RewardService(REWARD_CONTRACT).deposit(to, value);
     }
 
     /// @dev Checks if any order transfers will fail.

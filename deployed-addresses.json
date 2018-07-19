@@ -17,7 +17,7 @@
   "WLTC": "0x840f43912c2d5b9f9145ede3ec580518e8aebbbe",
   "IETH": "0x5e52089445ec55351ad843e250f27476de12846e",
   "TokenTransferProxy": "0x2fbed7dcde5a6ce80d156e1b293a06a47545391b",
-  "Exchange": "0x1b6e1ec4f449619e32a10250fe6d6b6878ea6fe4",
+  "Exchange": "0x0a3ab278cfd91e7e8b848b06be3812cd5548fd4f",
   "Storage": "0xa4e1a1dd026a3f894f246a7c4fc098f041bede71",
   "StorageManager": "0x66d52e12a647125f396cb3840120e18968b308a9",
   "Roles2Library": "0x81626e452bcf600647bcb3b88396198f974e3be3",
@@ -25,5 +25,6 @@
   "UserBackendProvider": "0xe164054646600ded98a586d033b7345b0b4edea9",
   "UserFactory": "0xdb3e71d7a8fcab63d7009343063f416511572e60",
   "Recovery": "0xe782014ecc116c023150f9a0ba14a69fff1163ef",
-  "UserRegistry": "0xd1bc7ed18735589311a1099d8da75f97119b3d0a"
+  "UserRegistry": "0xd1bc7ed18735589311a1099d8da75f97119b3d0a",
+  "rewardService": "0x248df646353cfce4296415c37cd7e70608237166"
 }
