@@ -223,7 +223,7 @@
         "id": 1411,
         "nodeType": "ImportDirective",
         "scope": 1593,
-        "sourceUnit": 2602,
+        "sourceUnit": 2620,
         "src": "677:30:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -237,10 +237,10 @@
               "id": 1412,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2601,
+              "referencedDeclaration": 2619,
               "src": "952:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$2601",
+                "typeIdentifier": "t_contract$_Ownable_$2619",
                 "typeString": "contract Ownable"
               }
             },
@@ -250,7 +250,7 @@
           }
         ],
         "contractDependencies": [
-          2601
+          2619
         ],
         "contractKind": "contract",
         "documentation": "@title TokenTransferProxy - Transfers tokens on behalf of contracts that have been approved via decentralized governance.\n @author Amir Bandeali - <amir@0xProject.com>, Will Warren - <will@0xProject.com>",
@@ -258,7 +258,7 @@
         "id": 1592,
         "linearizedBaseContracts": [
           1592,
-          2601
+          2619
         ],
         "name": "TokenTransferProxy",
         "nodeType": "ContractDefinition",
@@ -297,7 +297,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 14525,
+                            "referencedDeclaration": 14543,
                             "src": "1100:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -341,7 +341,7 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 14528,
+                      "referencedDeclaration": 14546,
                       "src": "1081:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -448,7 +448,7 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 14528,
+                      "referencedDeclaration": 14546,
                       "src": "1188:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -598,7 +598,7 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 14528,
+                      "referencedDeclaration": 14546,
                       "src": "1294:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1068,7 +1068,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 14525,
+                          "referencedDeclaration": 14543,
                           "src": "1959:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1147,7 +1147,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 2581,
+                  "referencedDeclaration": 2599,
                   "src": "1791:9:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -1802,7 +1802,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 14525,
+                          "referencedDeclaration": 14543,
                           "src": "2554:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1881,7 +1881,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 2581,
+                  "referencedDeclaration": 2599,
                   "src": "2163:9:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -2441,7 +2441,7 @@
         "id": 1411,
         "nodeType": "ImportDirective",
         "scope": 1593,
-        "sourceUnit": 2602,
+        "sourceUnit": 2620,
         "src": "677:30:2",
         "symbolAliases": [],
         "unitAlias": ""
@@ -2455,10 +2455,10 @@
               "id": 1412,
               "name": "Ownable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 2601,
+              "referencedDeclaration": 2619,
               "src": "952:7:2",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Ownable_$2601",
+                "typeIdentifier": "t_contract$_Ownable_$2619",
                 "typeString": "contract Ownable"
               }
             },
@@ -2468,7 +2468,7 @@
           }
         ],
         "contractDependencies": [
-          2601
+          2619
         ],
         "contractKind": "contract",
         "documentation": "@title TokenTransferProxy - Transfers tokens on behalf of contracts that have been approved via decentralized governance.\n @author Amir Bandeali - <amir@0xProject.com>, Will Warren - <will@0xProject.com>",
@@ -2476,7 +2476,7 @@
         "id": 1592,
         "linearizedBaseContracts": [
           1592,
-          2601
+          2619
         ],
         "name": "TokenTransferProxy",
         "nodeType": "ContractDefinition",
@@ -2515,7 +2515,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 14525,
+                            "referencedDeclaration": 14543,
                             "src": "1100:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -2559,7 +2559,7 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 14528,
+                      "referencedDeclaration": 14546,
                       "src": "1081:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2666,7 +2666,7 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 14528,
+                      "referencedDeclaration": 14546,
                       "src": "1188:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -2816,7 +2816,7 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 14528,
+                      "referencedDeclaration": 14546,
                       "src": "1294:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -3286,7 +3286,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 14525,
+                          "referencedDeclaration": 14543,
                           "src": "1959:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -3365,7 +3365,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 2581,
+                  "referencedDeclaration": 2599,
                   "src": "1791:9:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -4020,7 +4020,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 14525,
+                          "referencedDeclaration": 14543,
                           "src": "2554:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -4099,7 +4099,7 @@
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 2581,
+                  "referencedDeclaration": 2599,
                   "src": "2163:9:2",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -4623,5 +4623,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-19T09:10:41.692Z"
+  "updatedAt": "2018-07-20T10:31:35.236Z"
 }

@@ -22,7 +22,7 @@ contract RewardService is TokenTransferProxy {
     rateDivider = _rateDivider;
   }
 
-  function setRate(uint _rateDivider, uint _rateMultiplier) public onlyOwner {
+  function setRate(uint _rateMultiplier, uint _rateDivider) public onlyOwner {
     rateMultiplier = _rateMultiplier;
     rateDivider = _rateDivider;
   }
