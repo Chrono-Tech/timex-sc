@@ -42,7 +42,7 @@ contract RewardService is TokenTransferProxy {
     require(balances[msg.sender] >= _value);
     balances[msg.sender] -= _value;
 
-    Token(token).transfer(_to, _value);
+    require(Token(token).transfer(_to, _value));
 
     emit Withdraw(msg.sender, _to, _value);
     return true;
