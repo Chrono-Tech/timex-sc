@@ -23,7 +23,9 @@
     "abi:release": "cp deployed-addresses.json ../laborx.exchange.abi/deployed-addresses.json; rm -rf ../laborx.exchange.abi/contracts; cp -r ./build/contracts ../laborx.exchange.abi",
     "migrate:stage": "truffle migrate --network stage",
     "migrate:stage:reset": "truffle migrate --network stage --reset",
-    "migrate:ganache": "truffle migrate --network ganache --reset"
+    "migrate:ganache": "truffle migrate --network ganache --reset",
+    "migrate:kovan": "truffle migrate --network kovan",
+    "migrate:kovan:reset": "truffle migrate --network kovan --reset"
   },
   "dependencies": {
     "@laborx/exchange.core": "git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#develop",
