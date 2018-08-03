@@ -75,7 +75,7 @@ contract Exchange is SafeMath {
         bytes32 orderHash
     );
 
-    // TODO: maker, taker, 
+    // TODO: maker, taker,
     event ExchangeLogError(uint8 errorId, bytes32 indexed orderHash);
 
     struct Order {
@@ -489,7 +489,7 @@ contract Exchange is SafeMath {
           return true;
       }
 
-      return UserRegistry(USER_REGISTRY).isManagingProxy(signer, recovered);
+      return UserRegistry(USER_REGISTRY).isManagingProxy(recovered, signer);
     }
 
     /// @dev Checks if rounding error > 0.1%.

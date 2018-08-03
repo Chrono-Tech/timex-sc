@@ -17,8 +17,8 @@ module.exports = async (deployer) => {
     const exchange = await Exchange.new(
       timeTokenAddress,
       tokenTransferProxy.address,
-      userRegistryAddress,
-      rewardService.address)
+      rewardService.address,
+      userRegistryAddress)
     console.log(`[Exchange] address is: ${exchange.address}`)
 
     await tokenTransferProxy.addAuthorizedAddress(exchange.address)
