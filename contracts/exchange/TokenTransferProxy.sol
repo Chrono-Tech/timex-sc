@@ -45,8 +45,8 @@ contract TokenTransferProxy is Ownable {
     mapping (address => bool) public authorized;
     address[] public authorities;
 
-    event LogAuthorizedAddressAdded(address indexed target, address indexed caller);
-    event LogAuthorizedAddressRemoved(address indexed target, address indexed caller);
+    event TokenTransferProxyLogAuthorizedAddressAdded(address indexed target, address indexed caller);
+    event TokenTransferProxyLogAuthorizedAddressRemoved(address indexed target, address indexed caller);
 
     /*
      * Public functions
@@ -60,7 +60,7 @@ contract TokenTransferProxy is Ownable {
     {
         authorized[target] = true;
         authorities.push(target);
-        emit LogAuthorizedAddressAdded(target, msg.sender);
+        emit TokenTransferProxyLogAuthorizedAddressAdded(target, msg.sender);
     }
 
     /// @dev Removes authorizion of an address.
@@ -78,7 +78,7 @@ contract TokenTransferProxy is Ownable {
                 break;
             }
         }
-        emit LogAuthorizedAddressRemoved(target, msg.sender);
+        emit TokenTransferProxyLogAuthorizedAddressRemoved(target, msg.sender);
     }
 
     /// @dev Calls into ERC20 Token contract, invoking transferFrom.

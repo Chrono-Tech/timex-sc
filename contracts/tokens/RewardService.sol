@@ -13,8 +13,8 @@ contract RewardService is TokenTransferProxy {
 
   mapping (address => uint) public balances;
 
-  event Deposit(address to, uint256 value);
-  event Withdraw(address from, address to, uint256 value);
+  event RewardDeposit(address indexed _to, uint256 _value);
+  event RewardWithdraw(address indexed _from, address indexed _to, uint256 _value);
 
   function RewardService(address _token, uint _rateMultiplier, uint _rateDivider) public {
     token = _token;
@@ -34,7 +34,7 @@ contract RewardService is TokenTransferProxy {
   function deposit(address _to, uint _value) public onlyAuthorized returns (bool success) {
     uint amount = _value.safeMul(rateMultiplier).safeDiv(rateDivider);
     balances[_to] = balances[_to].safeAdd(amount);
-    emit Deposit(_to, amount);
+    emit RewardDeposit(_to, amount);
     return true;
   }
 
@@ -44,7 +44,7 @@ contract RewardService is TokenTransferProxy {
 
     require(Token(token).transfer(_to, _value));
 
-    emit Withdraw(msg.sender, _to, _value);
+    emit RewardWithdraw(msg.sender, _to, _value);
     return true;
   }
 }

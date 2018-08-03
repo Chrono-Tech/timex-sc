@@ -21,9 +21,9 @@ contract MintableAndBurnableToken is EIP20 {
     ) public {
     }
 
-    event Burn(address indexed from, uint256 value);
-    event WithdrawBurn(address indexed from, uint256 value, string externalAddress);
-    event Mint(address indexed to, uint256 amount);
+    event Burn(address indexed _from, uint256 _value);
+    event WithdrawalBurn(address indexed _from, uint256 _value, string externalAddress);
+    event Mint(address indexed _to, uint256 _value);
 
     /**
      * @dev Burns a specific amount of tokens.
@@ -37,7 +37,6 @@ contract MintableAndBurnableToken is EIP20 {
         balances[_who] = balances[_who].safeSub(_value);
         totalSupply = totalSupply.safeSub(_value);
         emit Burn(_who, _value);
-        emit Transfer(_who, address(0), _value);
     }
 
     /**
@@ -51,9 +50,7 @@ contract MintableAndBurnableToken is EIP20 {
 
         balances[_who] = balances[_who].safeSub(_value);
         totalSupply = totalSupply.safeSub(_value);
-        emit Burn(_who, _value);
-        emit WithdrawBurn(_who, _value, externalAddress);
-        emit Transfer(_who, address(0), _value);
+        emit WithdrawalBurn(_who, _value, externalAddress);
     }
 
     /**
@@ -66,7 +63,6 @@ contract MintableAndBurnableToken is EIP20 {
         totalSupply = totalSupply.safeAdd(_amount);
         balances[_to] = balances[_to].safeAdd(_amount);
         emit Mint(_to, _amount);
-        emit Transfer(address(0), _to, _amount);
         return true;
     }
 }

@@ -16,7 +16,7 @@ module.exports = {
         return new HDWalletProvider(mnemonic, 'https://parity.tp.ntr1x.com:8545')
       },
       network_id: 88,
-      gas: 5000000,
+      gas: 4700000,
       gasPrice: 0x01
     },
     kovan: {

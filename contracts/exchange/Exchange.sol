@@ -22,6 +22,8 @@ import { TokenTransferProxy } from "./TokenTransferProxy.sol";
 import { EIP20Interface as Token } from "../tokens/EIP20Interface.sol";
 import { SafeMath } from "../utils/SafeMath.sol";
 import "../tokens/RewardService.sol";
+import 'solidity-user-lib/contracts/UserRegistry.sol';
+import 'solidity-user-lib/contracts/UserInterface.sol';
 
 
 /// @title Exchange - Facilitates exchange of ERC20 tokens.
@@ -41,16 +43,16 @@ contract Exchange is SafeMath {
 
     address public FEE_TOKEN_CONTRACT;
     address public TOKEN_TRANSFER_PROXY_CONTRACT;
-
-    address public REWARD_CONTRACT;
+    address public USER_REGISTRY;
+    address public REWARD_SERVICE;
 
     // Mappings of orderHash => amounts of takerTokenAmount filled or cancelled.
     mapping (bytes32 => uint) public filled;
     mapping (bytes32 => uint) public cancelled;
 
-    event LogFill(
+    event ExchangeLogFill(
         address indexed maker,
-        address taker,
+        address indexed taker,
         address indexed feeRecipient,
         address makerToken,
         address takerToken,
@@ -58,11 +60,11 @@ contract Exchange is SafeMath {
         uint filledTakerTokenAmount,
         uint paidMakerFee,
         uint paidTakerFee,
-        bytes32 indexed tokens, // keccak256(makerToken, takerToken), allows subscribing to a token pair
+        bytes32 tokens, // keccak256(makerToken, takerToken), allows subscribing to a token pair
         bytes32 orderHash
     );
 
-    event LogCancel(
+    event ExchangeLogCancel(
         address indexed maker,
         address indexed feeRecipient,
         address makerToken,
@@ -73,7 +75,8 @@ contract Exchange is SafeMath {
         bytes32 orderHash
     );
 
-    event LogError(uint8 indexed errorId, bytes32 indexed orderHash);
+    // TODO: maker, taker, 
+    event ExchangeLogError(uint8 errorId, bytes32 indexed orderHash);
 
     struct Order {
         address maker;
@@ -89,13 +92,24 @@ contract Exchange is SafeMath {
         bytes32 orderHash;
     }
 
-    function Exchange(address _feeToken, address _tokenTransferProxy) public {
+    function Exchange(
+      address _feeToken,
+      address _tokenTransferProxy,
+      address _rewardService,
+      address _userRegistry)
+      public {
         FEE_TOKEN_CONTRACT = _feeToken;
         TOKEN_TRANSFER_PROXY_CONTRACT = _tokenTransferProxy;
+        REWARD_SERVICE = _rewardService;
+        USER_REGISTRY = _userRegistry;
     }
 
-    function setRewardContract (address _rewardContract) public {
-      REWARD_CONTRACT = _rewardContract;
+    function setRewardContract (address _rewardService) public {
+      REWARD_SERVICE = _rewardService;
+    }
+
+    function setUserRegistryContract (address _userRegistry) public {
+      USER_REGISTRY = _userRegistry;
     }
 
     /*
@@ -144,24 +158,24 @@ contract Exchange is SafeMath {
         ));
 
         if (block.timestamp >= order.expirationTimestampInSec) {
-            emit LogError(uint8(Errors.ORDER_EXPIRED), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ORDER_EXPIRED), order.orderHash);
             return 0;
         }
 
         uint remainingTakerTokenAmount = safeSub(order.takerTokenAmount, getUnavailableTakerTokenAmount(order.orderHash));
         filledTakerTokenAmount = min256(fillTakerTokenAmount, remainingTakerTokenAmount);
         if (filledTakerTokenAmount == 0) {
-            emit LogError(uint8(Errors.ORDER_FULLY_FILLED_OR_CANCELLED), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ORDER_FULLY_FILLED_OR_CANCELLED), order.orderHash);
             return 0;
         }
 
         if (isRoundingError(filledTakerTokenAmount, order.takerTokenAmount, order.makerTokenAmount)) {
-            emit LogError(uint8(Errors.ROUNDING_ERROR_TOO_LARGE), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ROUNDING_ERROR_TOO_LARGE), order.orderHash);
             return 0;
         }
 
         if (!shouldThrowOnInsufficientBalanceOrAllowance && !isTransferable(order, filledTakerTokenAmount)) {
-            emit LogError(uint8(Errors.INSUFFICIENT_BALANCE_OR_ALLOWANCE), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.INSUFFICIENT_BALANCE_OR_ALLOWANCE), order.orderHash);
             return 0;
         }
 
@@ -203,7 +217,7 @@ contract Exchange is SafeMath {
             }
         }
 
-        emit LogFill(
+        emit ExchangeLogFill(
             order.maker,
             msg.sender,
             order.feeRecipient,
@@ -249,20 +263,20 @@ contract Exchange is SafeMath {
         require(order.makerTokenAmount > 0 && order.takerTokenAmount > 0 && cancelTakerTokenAmount > 0);
 
         if (block.timestamp >= order.expirationTimestampInSec) {
-            emit LogError(uint8(Errors.ORDER_EXPIRED), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ORDER_EXPIRED), order.orderHash);
             return 0;
         }
 
         uint remainingTakerTokenAmount = safeSub(order.takerTokenAmount, getUnavailableTakerTokenAmount(order.orderHash));
         uint cancelledTakerTokenAmount = min256(cancelTakerTokenAmount, remainingTakerTokenAmount);
         if (cancelledTakerTokenAmount == 0) {
-            emit LogError(uint8(Errors.ORDER_FULLY_FILLED_OR_CANCELLED), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ORDER_FULLY_FILLED_OR_CANCELLED), order.orderHash);
             return 0;
         }
 
         cancelled[order.orderHash] = safeAdd(cancelled[order.orderHash], cancelledTakerTokenAmount);
 
-        emit LogCancel(
+        emit ExchangeLogCancel(
             order.maker,
             order.feeRecipient,
             order.makerToken,
@@ -462,15 +476,20 @@ contract Exchange is SafeMath {
         bytes32 r,
         bytes32 s)
         public
-        pure
         returns (bool)
     {
-        return signer == ecrecover(
-            keccak256("\x19Ethereum Signed Message:\n32", hash),
-            v,
-            r,
-            s
-        );
+      address recovered = ecrecover(
+          keccak256("\x19Ethereum Signed Message:\n32", hash),
+          v,
+          r,
+          s
+      );
+
+      if (signer == recovered) {
+          return true;
+      }
+
+      return UserRegistry(USER_REGISTRY).isManagingProxy(signer, recovered);
     }
 
     /// @dev Checks if rounding error > 0.1%.
@@ -538,7 +557,7 @@ contract Exchange is SafeMath {
     }
 
     function depositReward(address to, uint value) internal returns (bool) {
-      return RewardService(REWARD_CONTRACT).deposit(to, value);
+      return RewardService(REWARD_SERVICE).deposit(to, value);
     }
 
     /// @dev Checks if any order transfers will fail.

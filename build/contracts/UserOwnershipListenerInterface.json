@@ -24,20 +24,20 @@
   "deployedBytecode": "0x",
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "/**\n* Copyright 2017–2018, LaborX PTY\n* Licensed under the AGPL Version 3 license.\n*/\n\npragma solidity ^0.4.21;\n\n\n/// @title TODO:\ninterface UserOwnershipListenerInterface {\n\tfunction userOwnershipChanged(address _contract, address _from) external;\n}",
+  "source": "/**\n* Copyright 2017–2018, LaborX PTY\n* Licensed under the AGPL Version 3 license.\n*/\n\npragma solidity ^0.4.21;\n\n\n/// @title Defines an interface for those who wants to trigger and log events related with\n/// ownership changes. Supported by UserRegistry contract.\ninterface UserOwnershipListenerInterface {\n\tfunction userOwnershipChanged(address _contract, address _from) external;\n}",
   "sourcePath": "solidity-user-lib/contracts/UserOwnershipListenerInterface.sol",
   "ast": {
     "absolutePath": "solidity-user-lib/contracts/UserOwnershipListenerInterface.sol",
     "exportedSymbols": {
       "UserOwnershipListenerInterface": [
-        14004
+        11336
       ]
     },
-    "id": 14005,
+    "id": 11337,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13996,
+        "id": 11328,
         "literals": [
           "solidity",
           "^",
@@ -45,17 +45,17 @@
           ".21"
         ],
         "nodeType": "PragmaDirective",
-        "src": "89:24:33"
+        "src": "89:24:21"
       },
       {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "interface",
-        "documentation": "@title TODO:",
+        "documentation": "@title Defines an interface for those who wants to trigger and log events related with\n ownership changes. Supported by UserRegistry contract.",
         "fullyImplemented": false,
-        "id": 14004,
+        "id": 11336,
         "linearizedBaseContracts": [
-          14004
+          11336
         ],
         "name": "UserOwnershipListenerInterface",
         "nodeType": "ContractDefinition",
@@ -63,7 +63,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 14003,
+            "id": 11335,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -71,16 +71,16 @@
             "name": "userOwnershipChanged",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 14001,
+              "id": 11333,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13998,
+                  "id": 11330,
                   "name": "_contract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 14003,
-                  "src": "207:17:33",
+                  "scope": 11335,
+                  "src": "340:17:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -88,10 +88,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13997,
+                    "id": 11329,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "207:7:33",
+                    "src": "340:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -102,11 +102,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 14000,
+                  "id": 11332,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 14003,
-                  "src": "226:13:33",
+                  "scope": 11335,
+                  "src": "359:13:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -114,10 +114,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13999,
+                    "id": 11331,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "226:7:33",
+                    "src": "359:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -127,40 +127,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "206:34:33"
+              "src": "339:34:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 14002,
+              "id": 11334,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "249:0:33"
+              "src": "382:0:21"
             },
-            "scope": 14004,
-            "src": "177:73:33",
+            "scope": 11336,
+            "src": "310:73:21",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 14005,
-        "src": "133:119:33"
+        "scope": 11337,
+        "src": "266:119:21"
       }
     ],
-    "src": "89:163:33"
+    "src": "89:296:21"
   },
   "legacyAST": {
     "absolutePath": "solidity-user-lib/contracts/UserOwnershipListenerInterface.sol",
     "exportedSymbols": {
       "UserOwnershipListenerInterface": [
-        14004
+        11336
       ]
     },
-    "id": 14005,
+    "id": 11337,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13996,
+        "id": 11328,
         "literals": [
           "solidity",
           "^",
@@ -168,17 +168,17 @@
           ".21"
         ],
         "nodeType": "PragmaDirective",
-        "src": "89:24:33"
+        "src": "89:24:21"
       },
       {
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "interface",
-        "documentation": "@title TODO:",
+        "documentation": "@title Defines an interface for those who wants to trigger and log events related with\n ownership changes. Supported by UserRegistry contract.",
         "fullyImplemented": false,
-        "id": 14004,
+        "id": 11336,
         "linearizedBaseContracts": [
-          14004
+          11336
         ],
         "name": "UserOwnershipListenerInterface",
         "nodeType": "ContractDefinition",
@@ -186,7 +186,7 @@
           {
             "body": null,
             "documentation": null,
-            "id": 14003,
+            "id": 11335,
             "implemented": false,
             "isConstructor": false,
             "isDeclaredConst": false,
@@ -194,16 +194,16 @@
             "name": "userOwnershipChanged",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 14001,
+              "id": 11333,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 13998,
+                  "id": 11330,
                   "name": "_contract",
                   "nodeType": "VariableDeclaration",
-                  "scope": 14003,
-                  "src": "207:17:33",
+                  "scope": 11335,
+                  "src": "340:17:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -211,10 +211,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13997,
+                    "id": 11329,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "207:7:33",
+                    "src": "340:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -225,11 +225,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 14000,
+                  "id": 11332,
                   "name": "_from",
                   "nodeType": "VariableDeclaration",
-                  "scope": 14003,
-                  "src": "226:13:33",
+                  "scope": 11335,
+                  "src": "359:13:21",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -237,10 +237,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 13999,
+                    "id": 11331,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "226:7:33",
+                    "src": "359:7:21",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
@@ -250,27 +250,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "206:34:33"
+              "src": "339:34:21"
             },
             "payable": false,
             "returnParameters": {
-              "id": 14002,
+              "id": 11334,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "249:0:33"
+              "src": "382:0:21"
             },
-            "scope": 14004,
-            "src": "177:73:33",
+            "scope": 11336,
+            "src": "310:73:21",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 14005,
-        "src": "133:119:33"
+        "scope": 11337,
+        "src": "266:119:21"
       }
     ],
-    "src": "89:163:33"
+    "src": "89:296:21"
   },
   "compiler": {
     "name": "solc",
@@ -278,5 +278,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-07-20T10:27:52.332Z"
+  "updatedAt": "2018-08-03T09:55:59.881Z"
 }
