@@ -75,8 +75,7 @@ contract Exchange is SafeMath {
         bytes32 orderHash
     );
 
-    // TODO: maker, taker,
-    event ExchangeLogError(uint8 errorId, bytes32 indexed orderHash);
+    event ExchangeLogError(uint8 errorId, bytes32 orderHash, address indexed maker, address indexed taker);
 
     struct Order {
         address maker;
@@ -158,24 +157,24 @@ contract Exchange is SafeMath {
         ));
 
         if (block.timestamp >= order.expirationTimestampInSec) {
-            emit ExchangeLogError(uint8(Errors.ORDER_EXPIRED), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ORDER_EXPIRED), order.orderHash, order.maker, msg.sender);
             return 0;
         }
 
         uint remainingTakerTokenAmount = safeSub(order.takerTokenAmount, getUnavailableTakerTokenAmount(order.orderHash));
         filledTakerTokenAmount = min256(fillTakerTokenAmount, remainingTakerTokenAmount);
         if (filledTakerTokenAmount == 0) {
-            emit ExchangeLogError(uint8(Errors.ORDER_FULLY_FILLED_OR_CANCELLED), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ORDER_FULLY_FILLED_OR_CANCELLED), order.orderHash, order.maker, msg.sender);
             return 0;
         }
 
         if (isRoundingError(filledTakerTokenAmount, order.takerTokenAmount, order.makerTokenAmount)) {
-            emit ExchangeLogError(uint8(Errors.ROUNDING_ERROR_TOO_LARGE), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ROUNDING_ERROR_TOO_LARGE), order.orderHash, order.maker, msg.sender);
             return 0;
         }
 
         if (!shouldThrowOnInsufficientBalanceOrAllowance && !isTransferable(order, filledTakerTokenAmount)) {
-            emit ExchangeLogError(uint8(Errors.INSUFFICIENT_BALANCE_OR_ALLOWANCE), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.INSUFFICIENT_BALANCE_OR_ALLOWANCE), order.orderHash, order.maker, msg.sender);
             return 0;
         }
 
@@ -263,14 +262,14 @@ contract Exchange is SafeMath {
         require(order.makerTokenAmount > 0 && order.takerTokenAmount > 0 && cancelTakerTokenAmount > 0);
 
         if (block.timestamp >= order.expirationTimestampInSec) {
-            emit ExchangeLogError(uint8(Errors.ORDER_EXPIRED), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ORDER_EXPIRED), order.orderHash, order.maker, msg.sender);
             return 0;
         }
 
         uint remainingTakerTokenAmount = safeSub(order.takerTokenAmount, getUnavailableTakerTokenAmount(order.orderHash));
         uint cancelledTakerTokenAmount = min256(cancelTakerTokenAmount, remainingTakerTokenAmount);
         if (cancelledTakerTokenAmount == 0) {
-            emit ExchangeLogError(uint8(Errors.ORDER_FULLY_FILLED_OR_CANCELLED), order.orderHash);
+            emit ExchangeLogError(uint8(Errors.ORDER_FULLY_FILLED_OR_CANCELLED), order.orderHash, order.maker, msg.sender);
             return 0;
         }
 
