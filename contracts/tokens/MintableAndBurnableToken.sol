@@ -5,6 +5,7 @@ import "../utils/SafeMathLibrary.sol";
 
 
 contract MintableAndBurnableToken is EIP20 {
+  
     using SafeMathLibrary for uint256;
 
     function MintableAndBurnableToken(

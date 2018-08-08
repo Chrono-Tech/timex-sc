@@ -22,8 +22,8 @@ import { TokenTransferProxy } from "./TokenTransferProxy.sol";
 import { EIP20Interface as Token } from "../tokens/EIP20Interface.sol";
 import { SafeMath } from "../utils/SafeMath.sol";
 import "../tokens/RewardService.sol";
-import 'solidity-user-lib/contracts/UserRegistry.sol';
-import 'solidity-user-lib/contracts/UserInterface.sol';
+import "solidity-user-lib/contracts/UserRegistry.sol";
+import "solidity-user-lib/contracts/UserInterface.sol";
 
 
 /// @title Exchange - Facilitates exchange of ERC20 tokens.
@@ -92,11 +92,11 @@ contract Exchange is SafeMath {
     }
 
     function Exchange(
-      address _feeToken,
-      address _tokenTransferProxy,
-      address _rewardService,
-      address _userRegistry)
-      public {
+        address _feeToken,
+        address _tokenTransferProxy,
+        address _rewardService,
+        address _userRegistry
+    ) public {
         FEE_TOKEN_CONTRACT = _feeToken;
         TOKEN_TRANSFER_PROXY_CONTRACT = _tokenTransferProxy;
         REWARD_SERVICE = _rewardService;
@@ -104,11 +104,11 @@ contract Exchange is SafeMath {
     }
 
     function setRewardContract (address _rewardService) public {
-      REWARD_SERVICE = _rewardService;
+        REWARD_SERVICE = _rewardService;
     }
 
     function setUserRegistryContract (address _userRegistry) public {
-      USER_REGISTRY = _userRegistry;
+        USER_REGISTRY = _userRegistry;
     }
 
     /*
@@ -477,18 +477,18 @@ contract Exchange is SafeMath {
         public
         returns (bool)
     {
-      address recovered = ecrecover(
-          keccak256("\x19Ethereum Signed Message:\n32", hash),
-          v,
-          r,
-          s
-      );
+        address recovered = ecrecover(
+            keccak256("\x19Ethereum Signed Message:\n32", hash),
+            v,
+            r,
+            s
+        );
 
-      if (signer == recovered) {
-          return true;
-      }
+        if (signer == recovered) {
+            return true;
+        }
 
-      return UserRegistry(USER_REGISTRY).isManagingProxy(recovered, signer);
+        return UserRegistry(USER_REGISTRY).isManagingProxy(recovered, signer);
     }
 
     /// @dev Checks if rounding error > 0.1%.
@@ -556,7 +556,7 @@ contract Exchange is SafeMath {
     }
 
     function depositReward(address to, uint value) internal returns (bool) {
-      return RewardService(REWARD_SERVICE).deposit(to, value);
+        return RewardService(REWARD_SERVICE).deposit(to, value);
     }
 
     /// @dev Checks if any order transfers will fail.
@@ -582,20 +582,24 @@ contract Exchange is SafeMath {
             if (getBalance(FEE_TOKEN_CONTRACT, order.maker) < requiredMakerFee
                 || getAllowance(FEE_TOKEN_CONTRACT, order.maker) < requiredMakerFee
                 || getBalance(FEE_TOKEN_CONTRACT, taker) < requiredTakerFee
-                || getAllowance(FEE_TOKEN_CONTRACT, taker) < requiredTakerFee
-            ) return false;
+                || getAllowance(FEE_TOKEN_CONTRACT, taker) < requiredTakerFee) {
+                return false;
+            }
 
             if (!isMakerTokenFee && (getBalance(order.makerToken, order.maker) < fillMakerTokenAmount // Don't double check makerToken if Fee
-                                     || getAllowance(order.makerToken, order.maker) < fillMakerTokenAmount)
-            ) return false;
+                || getAllowance(order.makerToken, order.maker) < fillMakerTokenAmount)) {
+                return false;
+            }
             if (!isTakerTokenFee && (getBalance(order.takerToken, taker) < fillTakerTokenAmount // Don't double check takerToken if Fee
-                                     || getAllowance(order.takerToken, taker) < fillTakerTokenAmount)
-            ) return false;
+                || getAllowance(order.takerToken, taker) < fillTakerTokenAmount)) {
+                return false;
+            }
         } else if (getBalance(order.makerToken, order.maker) < fillMakerTokenAmount
                    || getAllowance(order.makerToken, order.maker) < fillMakerTokenAmount
                    || getBalance(order.takerToken, taker) < fillTakerTokenAmount
-                   || getAllowance(order.takerToken, taker) < fillTakerTokenAmount
-        ) return false;
+                   || getAllowance(order.takerToken, taker) < fillTakerTokenAmount) {
+            return false;
+        }
 
         return true;
     }

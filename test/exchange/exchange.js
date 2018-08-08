@@ -7,10 +7,13 @@ const EIP20 = artifacts.require('EIP20')
 const TokenTransferProxy = artifacts.require('./TokenTransferProxy.sol')
 const FeeToken = artifacts.require('./UnlimitedAllowanceToken.sol')
 const Exchange = artifacts.require('./Exchange.sol')
+const RewardService = artifacts.require('./RewardService.sol')
 
 const { getOrderHashHex, signOrderHashAsync, isValidSignature, isValidSignatureVRS, sign, Order } = require('@laborx/exchange.core')
 
-let FEE, TT1, TT2, TOKEN_TRANSFER_PROXY, EXCHANGE
+const NULL_ADDRESS = '0x0000000000000000000000000000000000000000'
+
+let FEE, TT1, TT2, TOKEN_TRANSFER_PROXY, EXCHANGE, REWARD_SERVICE
 
 const hdWallet = hdKey.fromMasterSeed(bip39.mnemonicToSeed('candy maple cake sugar pudding cream honey rich smooth crumble sweet treat'))
 
@@ -31,7 +34,13 @@ contract('Exchange', (accounts, d) => {
   beforeEach(async () => {
     FEE = await FeeToken.new(1000000000, 'Fee Token', 18, 'FEE')
     TOKEN_TRANSFER_PROXY = await TokenTransferProxy.new()
-    EXCHANGE = await Exchange.new(FEE.address, TOKEN_TRANSFER_PROXY.address)
+    REWARD_SERVICE = await RewardService.new(FEE.address, '1', '1')
+    EXCHANGE = await Exchange.new(
+      FEE.address,
+      TOKEN_TRANSFER_PROXY.address,
+      REWARD_SERVICE.address,
+      NULL_ADDRESS
+    )
 
     TT1 = await EIP20.new(10000, 'Test Token 1', 1, 'TT1', { from: accounts[0] })
     TT2 = await EIP20.new(10000, 'Test Token 2', 1, 'TT2', { from: accounts[0] })
@@ -107,7 +116,7 @@ contract('Exchange', (accounts, d) => {
 
     const hash = getOrderHashHex(order)
     const signer = {
-      async sign (data) {
+      async signData (data) {
         return sign(data, `0x${privateKeys[1]}`)
       }
     }
@@ -165,14 +174,14 @@ contract('Exchange', (accounts, d) => {
       takerTokenAddress: TT2.address,
       salt: '21240',
       expirationUnixTimestampSec: 1600000000,
-      makerFee: '4',
-      takerFee: '5',
-      feeRecipient: accounts[0]
+      makerFee: '0',
+      takerFee: '0',
+      feeRecipient: NULL_ADDRESS
     })
 
     const hash = getOrderHashHex(order)
     const signer = {
-      async sign (data) {
+      async signData (data) {
         return sign(data, `0x${privateKeys[1]}`)
       }
     }
@@ -322,7 +331,7 @@ contract('Exchange', (accounts, d) => {
 
       const hash = getOrderHashHex(order)
       const signer = {
-        async sign (data) {
+        async signData (data) {
           return sign(data, `0x${privateKey}`)
         }
       }
