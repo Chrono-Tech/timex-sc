@@ -25,20 +25,6 @@ contract UnlimitedAllowanceToken is EIP20 {
 
     uint constant MAX_UINT = 2**256 - 1;
 
-    function UnlimitedAllowanceToken(
-        uint256 _initialAmount,
-        string _tokenName,
-        uint8 _decimalUnits,
-        string _tokenSymbol
-    // solhint-disable-next-line visibility-modifier-order
-    ) EIP20(
-        _initialAmount,
-        _tokenName,
-        _decimalUnits,
-        _tokenSymbol
-    ) public {
-    }
-
     /// @dev ERC20 transferFrom, modified such that an allowance of MAX_UINT represents an unlimited allowance.
     /// @param _from Address to transfer from.
     /// @param _to Address to transfer to.

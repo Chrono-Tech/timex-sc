@@ -18,12 +18,15 @@ contract RewardService is TokenTransferProxy {
     event RewardWithdraw(address indexed _from, address indexed _to, uint256 _value);
 
     function RewardService(address _token, uint _rateMultiplier, uint _rateDivider) public {
+        require(_token != address(0));
+
         token = _token;
-        rateMultiplier = _rateMultiplier;
-        rateDivider = _rateDivider;
+        setRate(_rateMultiplier, _rateDivider);
     }
 
     function setRate(uint _rateMultiplier, uint _rateDivider) public onlyOwner {
+        require(_rateMultiplier != 0 && _rateDivider != 0);
+
         rateMultiplier = _rateMultiplier;
         rateDivider = _rateDivider;
     }

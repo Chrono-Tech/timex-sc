@@ -5,22 +5,8 @@ import "../utils/SafeMathLibrary.sol";
 
 
 contract MintableAndBurnableToken is EIP20 {
-  
-    using SafeMathLibrary for uint256;
 
-    function MintableAndBurnableToken(
-        uint256 _initialAmount,
-        string _tokenName,
-        uint8 _decimalUnits,
-        string _tokenSymbol
-        // solhint-disable-next-line visibility-modifier-order
-    ) EIP20(
-        _initialAmount,
-        _tokenName,
-        _decimalUnits,
-        _tokenSymbol
-    ) public {
-    }
+    using SafeMathLibrary for uint256;
 
     event Burn(address indexed _from, uint256 _value);
     event WithdrawalBurn(address indexed _from, uint256 _value, string externalAddress);

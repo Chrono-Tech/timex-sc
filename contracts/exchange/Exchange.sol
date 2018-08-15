@@ -28,7 +28,7 @@ import "solidity-user-lib/contracts/UserInterface.sol";
 
 /// @title Exchange - Facilitates exchange of ERC20 tokens.
 /// @author Amir Bandeali - <amir@0xProject.com>, Will Warren - <will@0xProject.com>
-contract Exchange is SafeMath {
+contract Exchange is SafeMath, Ownable {
 
     // Error Codes
     enum Errors {
@@ -97,17 +97,22 @@ contract Exchange is SafeMath {
         address _rewardService,
         address _userRegistry
     ) public {
+        require(_feeToken != address(0));
+        require(_tokenTransferProxy != address(0));
+
         FEE_TOKEN_CONTRACT = _feeToken;
         TOKEN_TRANSFER_PROXY_CONTRACT = _tokenTransferProxy;
-        REWARD_SERVICE = _rewardService;
-        USER_REGISTRY = _userRegistry;
+        setRewardContract(_rewardService);
+        setUserRegistryContract(_userRegistry);
     }
 
-    function setRewardContract (address _rewardService) public {
+    function setRewardContract (address _rewardService) public onlyOwner {
+        require(_rewardService != address(0));
         REWARD_SERVICE = _rewardService;
     }
 
-    function setUserRegistryContract (address _userRegistry) public {
+    function setUserRegistryContract (address _userRegistry) public onlyOwner {
+        require(_userRegistry != address(0));
         USER_REGISTRY = _userRegistry;
     }
 

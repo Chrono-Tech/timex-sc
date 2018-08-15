@@ -8,20 +8,6 @@ contract WrappedEtherToken is MintableAndBurnableToken {
     event WethDeposit(address indexed _to, uint _value);
     event WethWithdrawal(address indexed _from, uint _value);
 
-    function WrappedEtherToken(
-        uint256 _initialAmount,
-        string _tokenName,
-        uint8 _decimalUnits,
-        string _tokenSymbol
-    // solhint-disable-next-line visibility-modifier-order
-    ) MintableAndBurnableToken(
-        _initialAmount,
-        _tokenName,
-        _decimalUnits,
-        _tokenSymbol
-    ) public {
-    }
-
     function() public payable {
         deposit();
     }
