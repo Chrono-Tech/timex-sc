@@ -28,7 +28,7 @@
     "migrate:kovan:reset": "truffle migrate --network kovan --reset"
   },
   "dependencies": {
-    "@laborx/exchange.core": "git+ssh://git@bitbucket.org:laborx-exchange/laborx.exchange.core.git#develop",
+    "@laborx/exchange.core": "file:../laborx.exchange.core",
     "solidity-roles-lib": "alesanro/solidity-roles-lib#solc-downgrade-v0.4.21",
     "solidity-shared-lib": "alesanro/solidity-shared-lib#solc-downgrade-v0.4.21",
     "solidity-storage-lib": "alesanro/solidity-storage-lib#solc-downgrade-v0.4.21",
